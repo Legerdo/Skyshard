@@ -2,6 +2,9 @@ import { defineConfig } from 'vitest/config';
 
 // Dev server, static dist/ build (no server logic), and Vitest (unit + property, Node env).
 export default defineConfig({
+  // Relative asset URLs keep the static build portable at both the site root
+  // and GitHub Pages project paths such as /Skyshard/.
+  base: './',
   server: {
     port: 5173,
   },
