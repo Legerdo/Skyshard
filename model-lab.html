@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Inline empty favicon: avoids a /favicon.ico 404 without any external request. -->
+    <link rel="icon" href="data:," />
+    <title>Skyshard Model Lab</title>
+    <style>
+      :root { color-scheme: dark; font-family: system-ui, sans-serif; font-size: 14px; }
+      html, body { margin: 0; height: 100%; background: #14161f; color: #e8e6f0; }
+      body { display: grid; grid-template-columns: minmax(0, 1fr) 420px; }
+      #lab-canvas { width: 100%; height: 100vh; display: block; outline: none; }
+      #lab-panel { height: 100vh; overflow: auto; padding: 12px 14px; box-sizing: border-box; background: #1c1f2b; border-left: 1px solid #2e3244; }
+      #lab-panel h1 { font-size: 16px; margin: 0 0 8px; }
+      #lab-panel h2 { font-size: 13px; margin: 14px 0 6px; color: #ffd27a; text-transform: none; }
+      #lab-panel label { display: block; margin: 6px 0 2px; color: #b8b4c8; }
+      #lab-panel select, #lab-panel input[type='text'], #lab-panel input[type='number'] { width: 100%; box-sizing: border-box; background: #11131b; color: inherit; border: 1px solid #3a3f55; border-radius: 4px; padding: 4px 6px; }
+      #lab-panel button { margin: 6px 6px 0 0; background: #2d3350; color: inherit; border: 1px solid #4a5277; border-radius: 4px; padding: 5px 10px; cursor: pointer; }
+      #lab-panel button:focus-visible, #lab-panel select:focus-visible, #lab-panel input:focus-visible { outline: 2px solid #ffd27a; outline-offset: 1px; }
+      #lab-panel .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      #lab-panel .row label { display: inline-flex; gap: 4px; align-items: center; margin: 4px 8px 0 0; }
+      #lab-panel table { width: 100%; border-collapse: collapse; font-size: 12px; }
+      #lab-panel th, #lab-panel td { text-align: left; padding: 2px 4px; border-bottom: 1px solid #2a2e3f; word-break: break-all; }
+      #lab-panel .ok { color: #8fe3a1; }
+      #lab-panel .missing { color: #ff7a6a; font-weight: 600; }
+      #lab-panel .optional { color: #8c889c; }
+      #lab-status { min-height: 1.4em; color: #cfe8ff; white-space: pre-wrap; }
+      #lab-warnings { color: #ffb36a; white-space: pre-wrap; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <canvas id="lab-canvas" tabindex="0" aria-label="모델 미리보기"></canvas>
+    <aside id="lab-panel" aria-label="모델 확인 패널"></aside>
+    <script type="module" src="/src/modelLab.ts"></script>
+  </body>
+</html>

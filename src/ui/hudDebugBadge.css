@@ -1,0 +1,19 @@
+/* Task 22.1: the HUD's "DEBUG" badge (top-left corner, above the Objective panel) while Debug_Tools were used. */
+
+.hud-debug-badge {
+  position: absolute;
+  left: 1.2rem;
+  top: 0.15rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 0.2rem;
+  background: rgba(150, 30, 30, 0.9);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  z-index: 6;
+}
+
+.hud-debug-badge[hidden] {
+  display: none;
+}

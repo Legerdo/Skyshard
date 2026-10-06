@@ -1,0 +1,152 @@
+/*
+ * Skyshard base styles: reset, full-viewport game canvas, DOM UI root, design tokens (design "시각 스타일"; task 14.1).
+ * Fonts come from the system Korean font stack only (no web fonts, no external CDN; Req 1.4, 35.5).
+ * Every UI size is in rem and the root font size is calc(20px * var(--ui-scale)), so Settings "UI 배율" (80–130 %,
+ * written to --ui-scale) scales the whole UI; body text is 1 rem = 16 px at 80 % (Req 35.6).
+ * Token values are mirrored in src/ui/styles/tokens.ts, whose contrast unit test reads this file.
+ */
+
+:root {
+  color-scheme: dark;
+
+  --ui-scale: 1;
+  --panel-bg: rgba(14, 24, 56, 0.86);
+  --gold: #E9C46A;
+  --text: #F5F1E6;
+  --text-muted: #B9C2D8;
+  --danger: #FF5A6A;
+  --ember: #FF7A45;
+  --tide: #3FA7F5;
+  --gale: #5ED3A5;
+  --terra: #D9A441;
+  --focus: 0 0 0 2px #E9C46A, 0 0 10px rgba(233, 196, 106, 0.6);
+  --font-ui: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans CJK KR', sans-serif;
+  /* Starlight gold frame: a four-point star in each corner joined by thin edge lines (border-image, slice 30). */
+  --gold-frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90'%3E%3Cpath d='M14 2H76M14 88H76M2 14V76M88 14V76' fill='none' stroke='%23E9C46A' stroke-width='1.6' stroke-opacity='0.85'/%3E%3Cg fill='%23E9C46A'%3E%3Cpath d='M12 1L14 10L23 12L14 14L12 23L10 14L1 12L10 10Z'/%3E%3Cpath d='M78 1L80 10L89 12L80 14L78 23L76 14L67 12L76 10Z'/%3E%3Cpath d='M12 67L14 76L23 78L14 80L12 89L10 80L1 78L10 76Z'/%3E%3Cpath d='M78 67L80 76L89 78L80 80L78 89L76 80L67 78L76 76Z'/%3E%3C/g%3E%3C/svg%3E");
+  --gold-frame-width: 0.8rem;
+
+  font-size: calc(20px * var(--ui-scale));
+}
+
+/* ---- Reset ---- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ---- Document ---- */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #0b1026;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Text entry stays selectable even though the game surface is not. */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* ---- Game canvas (WebGL2) ---- */
+
+#game-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+/* ---- DOM UI overlay ---- */
+
+/*
+ * The overlay lets pointer input fall through to the canvas.
+ * Interactive children opt in with `pointer-events: auto` (or the .ui-interactive helper).
+ */
+#ui-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ui-interactive {
+  pointer-events: auto;
+}
+
+/* Starlight gold frame for panels (four-point stars in the corners); the background shows through the middle. */
+.ui-frame {
+  border: var(--gold-frame-width) solid transparent;
+  border-image: var(--gold-frame) 30 / var(--gold-frame-width) / 0 stretch;
+}
+
+/* Inline SVG icons from the sprite (src/ui/icons.ts): drawn in currentColor, sized by the font (UI scale). */
+.ui-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+  vertical-align: -0.2em;
+  fill: currentColor;
+}
+
+.ui-icon--ember { color: var(--ember); }
+.ui-icon--tide { color: var(--tide); }
+.ui-icon--gale { color: var(--gale); }
+.ui-icon--terra { color: var(--terra); }
+.ui-icon--danger { color: var(--danger); }
+
+/* Visible keyboard focus for UI controls (the canvas opts out above). */
+#ui-root :focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}

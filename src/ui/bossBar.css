@@ -1,0 +1,113 @@
+/* Caelith boss bar (task 10.2; design "적·보스 표시", Req 32.6): top centre just below the Compass, 720 × 20 px at
+   UI scale 100 %, the name and subtitle above it, Phase notches at 65 % / 30 %, the Starshell durability below. */
+.hud-bossbar {
+  position: absolute;
+  left: 50%;
+  top: 3.6rem;
+  transform: translateX(-50%);
+  /* 720 × 20 from the HUD layout table (src/ui/hudLayout.ts); rem already follows --ui-scale. */
+  width: var(--hud-boss-bar-w, 36rem);
+  max-width: 92vw;
+  pointer-events: none;
+  text-shadow: 0 0.05rem 0.3rem rgba(0, 0, 0, 0.75);
+}
+.hud-bossbar[hidden] {
+  display: none;
+}
+.hud-bossbar__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+  font-weight: 700;
+}
+.hud-bossbar__names {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.hud-bossbar__name {
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: 0.3em;
+}
+.hud-bossbar__subtitle,
+.hud-bossbar__phase {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+.hud-bossbar__track {
+  position: relative;
+  height: var(--hud-boss-bar-h, 1rem);
+  border: 1px solid rgba(233, 196, 106, 0.65);
+  border-radius: 0.2rem;
+  background: rgba(10, 16, 42, 0.85);
+  overflow: hidden;
+}
+.hud-bossbar__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #6a4cff, #b9a6ff 70%, #f2e8ff);
+}
+.hud-bossbar.is-vulnerable .hud-bossbar__fill {
+  background: linear-gradient(90deg, #e9a93a, #ffe39a);
+}
+.hud-bossbar__notches {
+  position: absolute;
+  inset: 0;
+}
+.hud-bossbar__notch {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: rgba(245, 241, 230, 0.9);
+  box-shadow: 0 0 0.3rem rgba(245, 241, 230, 0.6);
+}
+.hud-bossbar__shell {
+  --shell-color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  color: var(--shell-color);
+}
+.hud-bossbar__shell[hidden] {
+  display: none;
+}
+.hud-bossbar__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.hud-bossbar__shell-track {
+  position: relative;
+  flex: 1;
+  height: calc(0.5rem * var(--ui-scale));
+  border: 1px solid var(--shell-color);
+  border-radius: 0.15rem;
+  background: rgba(10, 16, 42, 0.8);
+  overflow: hidden;
+}
+.hud-bossbar__shell-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: var(--shell-color);
+  opacity: 0.85;
+}
+.hud-bossbar__shell-text {
+  flex: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

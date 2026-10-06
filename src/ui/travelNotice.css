@@ -1,0 +1,55 @@
+/* Waystone / map notices under the Compass (tasks 13.5, 13.7). Never takes pointer input. */
+
+.travel-notice {
+  position: absolute;
+  left: 50%;
+  top: 7rem; /* below the Compass (1.2–3.2rem) and the Caelith bar under it */
+  transform: translateX(-50%);
+  max-width: min(36rem, 90vw);
+  padding: 0.45rem 1.1rem 0.5rem;
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  border-radius: 0.3rem;
+  background: var(--panel-bg);
+  color: var(--text);
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.travel-notice[hidden] {
+  display: none;
+}
+
+.travel-notice__title {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.travel-notice__text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.travel-notice[data-tone='gold'] {
+  border-color: var(--gold);
+  box-shadow: 0 0 1.2rem rgba(233, 196, 106, 0.45);
+}
+
+/* Refusal: the warning triangle and a danger edge, so the meaning does not rest on colour alone. */
+.travel-notice[data-tone='danger'] {
+  border-color: var(--danger);
+}
+
+.travel-notice[data-tone='danger'] .travel-notice__text::before {
+  content: '';
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.8rem;
+  margin-right: 0.45rem;
+  vertical-align: -0.08rem;
+  background: var(--danger);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}

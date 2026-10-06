@@ -1,0 +1,9 @@
+/* Full-screen fade over the game view (Safe_Position recovery; later fast travel and cinematics). */
+
+.screen-fade {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}

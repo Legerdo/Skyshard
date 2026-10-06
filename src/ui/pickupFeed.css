@@ -1,0 +1,62 @@
+/* HUD pickup feed (task 12.7, Req 30.6; placed by task 14.3): left side under the Objective panel; never takes
+   pointer input. */
+
+.pickup-feed {
+  position: absolute;
+  left: var(--hud-objective-x, 1.2rem);
+  top: calc(var(--hud-objective-y, 1.2rem) + var(--hud-objective-h, 3.2rem) + 1.2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+
+.pickup-feed__line {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 9rem;
+  max-width: 18rem;
+  padding: 0.25rem 0.7rem 0.3rem 0.5rem;
+  border-left: 3px solid var(--text-muted);
+  border-radius: 0.25rem;
+  background: var(--panel-bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+
+.pickup-feed__icon {
+  flex: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--text-muted);
+}
+
+.pickup-feed__name {
+  flex: 1;
+}
+
+.pickup-feed__count {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Kind by shape and edge colour: Glim coin, equipment diamond, consumable drop, material star. */
+.pickup-feed__line--glim { border-left-color: var(--gold); }
+.pickup-feed__line--glim .pickup-feed__icon { border-radius: 50%; background: var(--gold); }
+.pickup-feed__line--weapon,
+.pickup-feed__line--charm,
+.pickup-feed__line--relic { border-left-color: var(--gold); }
+.pickup-feed__line--weapon .pickup-feed__icon,
+.pickup-feed__line--charm .pickup-feed__icon,
+.pickup-feed__line--relic .pickup-feed__icon { background: var(--gold); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.pickup-feed__line--consumable { border-left-color: var(--gale); }
+.pickup-feed__line--consumable .pickup-feed__icon { background: var(--gale); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.pickup-feed__line--material { border-left-color: var(--tide); }
+.pickup-feed__line--material .pickup-feed__icon {
+  background: var(--tide);
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}

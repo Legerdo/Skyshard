@@ -1,0 +1,204 @@
+/*
+ * Shared screen styles (design "시각 스타일"): the screen stack layer, translucent navy panels with a starlight
+ * gold edge, and menu buttons with the gold focus ring. Sizes are in rem so the UI scale applies everywhere.
+ */
+
+/* Screens stack in DOM order; the layer itself lets pointer input fall through to the canvas. */
+.screen-stack {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Open / close motion is played by the ScreenManager with the Web Animations API (src/ui/motion.ts, task 14.1). */
+.ui-screen {
+  position: absolute;
+  inset: 0;
+}
+
+/* A closing screen stays visible but takes no input until its motion ends. */
+.ui-screen[inert],
+[inert] .ui-button {
+  pointer-events: none;
+}
+
+.ui-screen [hidden] {
+  display: none !important;
+}
+
+@keyframes ui-screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ui-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---- Modal screens (Defeat, Victory) ---- */
+
+.ui-modal {
+  display: flex;
+  padding: 1.5rem;
+  overflow-y: auto;
+  pointer-events: auto;
+  background: radial-gradient(ellipse at 50% 45%, rgba(7, 11, 30, 0.45), rgba(7, 11, 30, 0.8));
+}
+
+/* Translucent navy panel inside the starlight gold frame (four-point stars in the corners, base.css --gold-frame). */
+.ui-panel {
+  position: relative;
+  width: min(30rem, 100%);
+  margin: auto;
+  padding: 1rem 1.25rem 0.9rem;
+  border: var(--gold-frame-width) solid transparent;
+  border-image: var(--gold-frame) 30 / var(--gold-frame-width) / 0 stretch;
+  background: var(--panel-bg);
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* Constellation rule under the top edge of the frame. */
+.ui-panel__rule {
+  position: absolute;
+  top: 0.25rem;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.7;
+}
+
+.ui-panel__title {
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+.ui-panel__text {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+}
+
+.ui-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6rem;
+  margin: 1.5rem auto 0;
+  width: min(18rem, 100%);
+}
+
+.ui-actions--row {
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+}
+
+.ui-actions--row .ui-button {
+  flex: 1 1 0;
+}
+
+/* ---- Buttons ---- */
+
+.ui-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  min-height: 2.6rem;
+  padding: 0.5rem 1.4rem;
+  border: 1px solid rgba(233, 196, 106, 0.6);
+  border-radius: 0.3rem;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.04) 46%, rgba(255, 255, 255, 0) 80%),
+    rgba(20, 34, 76, 0.92);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  pointer-events: auto;
+  transition: box-shadow 120ms ease, background-color 120ms ease, transform 80ms ease;
+}
+
+#ui-root .ui-button:focus-visible {
+  outline: none;
+}
+
+.ui-button.is-focused {
+  box-shadow: var(--focus);
+  background-color: rgba(40, 62, 120, 0.96);
+}
+
+/* Four-point star marker beside the focused item. */
+.ui-button.is-focused::before {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: -0.3rem;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+/* Pressed for 0.08 s: mouse (:active) and Enter / A (.is-pressed, set by the button's click handler). */
+.ui-button:active,
+.ui-button.is-pressed {
+  transform: scale(0.97);
+  background-color: rgba(233, 196, 106, 0.32);
+  border-color: var(--gold);
+}
+
+.ui-button:hover:not([aria-disabled='true']) {
+  background-color: rgba(40, 62, 120, 0.96);
+}
+
+.ui-button[aria-disabled='true'] {
+  border-color: rgba(185, 194, 216, 0.35);
+  background: rgba(20, 34, 76, 0.6);
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.ui-button[aria-disabled='true']:active,
+.ui-button[aria-disabled='true'].is-pressed {
+  transform: none;
+  background-color: rgba(20, 34, 76, 0.6);
+  border-color: rgba(185, 194, 216, 0.35);
+}
+
+.ui-button__reason {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button {
+    transition: none;
+  }
+
+  .ui-button:active,
+  .ui-button.is-pressed {
+    transform: none;
+  }
+}

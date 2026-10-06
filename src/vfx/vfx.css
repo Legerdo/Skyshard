@@ -1,0 +1,47 @@
+/* VFX DOM overlays (Req 26.1, 26.2, 26.8, 25.9, 24.6): floating damage numbers / Reaction names, the Burst flash. */
+.vfx-floats {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.vfx-float {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transform-origin: 50% 100%;
+  text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.95), 0 0.08rem 0.35rem rgba(0, 0, 0, 0.75);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+.vfx-float__icon {
+  width: 0.9em;
+  height: 0.9em;
+  flex: none;
+  filter: drop-shadow(0 0 0.12rem rgba(0, 0, 0, 0.9));
+}
+/* Crit: 1.5× scale is set inline; a gold outline and warmer glow here. */
+.vfx-float.is-crit .vfx-float__text {
+  -webkit-text-stroke: 0.06em #ffc247;
+  paint-order: stroke fill;
+  text-shadow: 0 0 0.35rem rgba(255, 194, 71, 0.8), 0 0.08rem 0.35rem rgba(0, 0, 0, 0.8);
+}
+.vfx-float.is-reaction {
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+.vfx-burst-flash {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}

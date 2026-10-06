@@ -1,0 +1,40 @@
+/* Off-screen Telegraph arrows (design "전투 프레이밍", Req 21.5): one per attack wind-up outside the view,
+   placed 48 px inside the screen edge (at 1080 p) and pointing toward it. */
+.hud-telegraph {
+  position: absolute;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: -1.125rem 0 0 -1.125rem;
+  pointer-events: none;
+  display: none;
+}
+.hud-telegraph.is-shown {
+  display: block;
+}
+.hud-telegraph svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.7));
+}
+.hud-telegraph__shape {
+  fill: #ff6a3d;
+  stroke: rgba(255, 244, 230, 0.9);
+  stroke-width: 1.5;
+}
+/* Heavy attacks: the danger colour and a slow pulse. */
+.hud-telegraph.is-strong .hud-telegraph__shape {
+  fill: var(--danger);
+}
+.hud-telegraph.is-strong svg {
+  animation: hud-telegraph-pulse 0.4s ease-in-out infinite alternate;
+}
+@keyframes hud-telegraph-pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-telegraph.is-strong svg {
+    animation: none;
+  }
+}

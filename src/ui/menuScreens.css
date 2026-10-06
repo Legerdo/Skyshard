@@ -1,0 +1,441 @@
+/*
+ * Menu screens (task 14.2; design "화면 목록", "시각 스타일"): Loading, Pause, confirm dialogs, Credits, Quest, the
+ * reaction codex, Shop, Echo Altar, Inventory / Equipment and the fatal error overlay. All sit in the navy panel with
+ * the starlight gold frame (screens.css .ui-panel); sizes are rem so the UI scale applies.
+ */
+
+/* ---- Loading ---- */
+.loading-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1rem;
+  background: radial-gradient(ellipse at 50% 35%, #1b2a5c 0%, #0b1026 60%, #05070f 100%);
+  color: var(--text);
+  text-align: center;
+}
+.loading-screen__name {
+  color: var(--gold);
+  font-size: 2.6rem;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+}
+.loading-screen__tagline {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em;
+}
+.loading-screen__bar {
+  position: relative;
+  width: min(24rem, 80vw);
+  height: 0.5rem;
+  border: 1px solid rgba(233, 196, 106, 0.6);
+  border-radius: 0.25rem;
+  background: rgba(14, 24, 56, 0.85);
+  overflow: hidden;
+}
+.loading-screen__fill {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(233, 196, 106, 0.6), var(--gold));
+}
+.loading-screen__text {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Shared menu panel ---- */
+.menu-screen .menu-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(38rem, 100%);
+  max-height: calc(100vh - 3rem);
+  text-align: left;
+}
+.menu-panel__title {
+  text-align: center;
+}
+.menu-panel__header:empty {
+  display: none;
+}
+.menu-panel__header {
+  margin-top: 0.6rem;
+}
+.menu-panel__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 0.8rem;
+  padding-right: 0.3rem;
+  overflow-y: auto;
+}
+.menu-panel__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.9rem;
+}
+.menu-panel__footer .ui-button {
+  min-width: 10rem;
+}
+.menu-panel__heading {
+  margin: 0.9rem 0 0.4rem;
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+.menu-panel__heading:first-child {
+  margin-top: 0;
+}
+.menu-panel__note {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.menu-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+.menu-stats {
+  display: flex;
+  gap: 1.2rem;
+}
+.menu-stat {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+.menu-stat__label {
+  color: var(--text-muted);
+}
+.menu-stat__value {
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.menu-screen ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- Pause ---- */
+.pause-screen .pause-screen__panel {
+  width: min(22rem, 100%);
+  text-align: center;
+}
+.pause-screen__menu {
+  margin-top: 1rem;
+  gap: 0.45rem;
+}
+.pause-screen__menu .ui-button {
+  min-height: 2.2rem;
+}
+.pause-screen__hint {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* ---- Confirm dialogs ---- */
+.confirm-screen .ui-actions--row {
+  width: min(22rem, 100%);
+}
+.confirm-screen__detail {
+  font-size: 0.8rem;
+}
+
+/* ---- Credits ---- */
+.credits-screen__section + .credits-screen__section {
+  margin-top: 0.9rem;
+}
+.credits-screen__lines li {
+  padding: 0.15rem 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* ---- Quest ---- */
+.quest-card {
+  position: relative;
+  padding: 0.6rem 0.8rem;
+  border-left: 2px solid rgba(185, 194, 216, 0.4);
+  border-radius: 0 0.3rem 0.3rem 0;
+  background: rgba(20, 34, 76, 0.55);
+}
+.quest-card + .quest-card,
+.quest-list {
+  margin-top: 0.6rem;
+}
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.quest-card.is-tracked {
+  border-left-color: var(--gold);
+}
+.quest-card.is-done {
+  opacity: 0.7;
+}
+.quest-card__kind {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+.quest-card__name {
+  margin-top: 0.1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.quest-card__objective {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+.quest-card__track {
+  margin-top: 0.5rem;
+  min-height: 2rem;
+  padding: 0.3rem 1rem;
+}
+
+/* ---- Reaction codex ---- */
+.codex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.codex-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: 7rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  border-radius: 0.35rem;
+  background: rgba(20, 34, 76, 0.6);
+  text-align: center;
+}
+.codex-cell.is-locked {
+  justify-content: center;
+  border-style: dashed;
+  border-color: rgba(185, 194, 216, 0.3);
+  background: rgba(10, 16, 40, 0.6);
+  color: var(--text-muted);
+}
+.codex-cell__pair {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.codex-cell__pair .ui-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.codex-cell__plus {
+  color: var(--text-muted);
+}
+.codex-cell__lock {
+  width: 1.1rem;
+  height: 1.3rem;
+  background: rgba(185, 194, 216, 0.45);
+  clip-path: polygon(20% 40%, 20% 25%, 30% 10%, 50% 3%, 70% 10%, 80% 25%, 80% 40%, 100% 40%, 100% 100%, 0 100%, 0 40%, 32% 40%, 32% 27%, 40% 17%, 50% 14%, 60% 17%, 68% 27%, 68% 40%);
+}
+.codex-cell__name {
+  color: var(--gold);
+  font-weight: 700;
+}
+.codex-cell.is-locked .codex-cell__name {
+  color: var(--text-muted);
+}
+.codex-cell__effect {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+.codex-screen__rule {
+  margin-top: 0.9rem;
+  padding: 0.5rem 0.7rem;
+  border-top: 1px solid rgba(233, 196, 106, 0.35);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ---- Shop ---- */
+.shop-list,
+.altar-list,
+.inventory-items,
+.inventory-candidates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.shop-row,
+.inventory-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.3rem;
+  background: rgba(20, 34, 76, 0.55);
+}
+.shop-row__info,
+.inventory-item__info {
+  min-width: 0;
+}
+.shop-row__name,
+.inventory-item__name {
+  font-weight: 700;
+}
+.shop-row__desc,
+.inventory-item__desc {
+  margin-top: 0.1rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.shop-row__held,
+.inventory-item__count {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.shop-row .ui-button,
+.inventory-item .ui-button,
+.altar-row .ui-button {
+  flex: none;
+  min-width: 8.5rem;
+  min-height: 2.2rem;
+  padding: 0.3rem 0.9rem;
+}
+.inventory-item__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* ---- Echo Altar ---- */
+.altar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+  background: rgba(20, 34, 76, 0.55);
+}
+.altar-row__head {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.altar-row__kind {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.altar-row__name {
+  font-weight: 700;
+}
+.altar-row__tier {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.altar-row__compare,
+.inventory-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.78rem;
+}
+.altar-row__arrow,
+.inventory-compare__arrow {
+  color: var(--gold);
+}
+.altar-row__cost {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.altar-row .ui-button {
+  align-self: flex-end;
+}
+
+/* ---- Inventory / Equipment ---- */
+.inventory-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.inventory-slot {
+  align-items: flex-start;
+  text-align: left;
+}
+.inventory-slot.is-open {
+  border-color: var(--gold);
+}
+.inventory-slot__effect {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+.inventory-compare {
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.3rem;
+  background: rgba(10, 16, 40, 0.55);
+}
+.inventory-compare.is-refused {
+  opacity: 0.75;
+}
+.inventory-compare__heading {
+  grid-column: 1 / -1;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.inventory-compare__note {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+.inventory-candidate {
+  padding: 0.4rem 0.5rem;
+  border-left: 2px solid rgba(233, 196, 106, 0.4);
+}
+.inventory-candidate .ui-button {
+  min-height: 2rem;
+  padding: 0.3rem 0.9rem;
+}
+
+/* ---- Fatal error ---- */
+.fatal-error {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  padding: 1.5rem;
+  background: rgba(5, 7, 15, 0.92);
+  pointer-events: auto;
+}
+.fatal-error__detail {
+  margin-top: 0.6rem;
+  color: var(--danger);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}

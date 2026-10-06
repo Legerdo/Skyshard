@@ -1,0 +1,74 @@
+/* Stage-complete banner (upper centre, 3 s) and the cinematic caption with letterbox bars (task 4.9). */
+.hud-stage-banner {
+  position: absolute;
+  left: 50%;
+  top: 16%;
+  transform: translateX(-50%);
+  min-width: 18rem;
+  padding: 0.55rem 2rem 0.6rem;
+  text-align: center;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(14, 24, 56, 0.82) 0%, rgba(14, 24, 56, 0) 75%);
+}
+.hud-stage-banner[hidden] {
+  display: none;
+}
+.hud-stage-banner__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+.hud-stage-banner__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.7);
+}
+.hud-stage-banner__rewards {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.hud-stage-banner__rewards[hidden] {
+  display: none;
+}
+
+.hud-cinematic {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  pointer-events: none;
+  text-align: center;
+}
+.hud-cinematic[hidden] {
+  display: none;
+}
+.hud-cinematic__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 9%;
+  background: #05070f;
+}
+.hud-cinematic__bar--top {
+  top: 0;
+}
+.hud-cinematic__bar--bottom {
+  bottom: 0;
+}
+.hud-cinematic__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.7);
+}
+.hud-cinematic__subtitle {
+  font-size: 1rem;
+  color: var(--text);
+  text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.8);
+}

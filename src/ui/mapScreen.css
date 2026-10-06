@@ -1,0 +1,370 @@
+/*
+ * Map screen (design "지도 (Map_System)", "시각 스타일"; task 13.5): full screen over the game, navy panel frame with
+ * the gold edge, the map plane (1024 × 1024 map px) moved and scaled by the view transform. Pins are zero-size
+ * anchors at their map pixel, counter-scaled by --pin-scale so icons and labels keep their size at every zoom.
+ */
+
+.map-screen {
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  background: radial-gradient(ellipse at 50% 40%, rgba(12, 20, 48, 0.92), rgba(5, 8, 22, 0.97));
+}
+
+@keyframes map-screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Full-screen screens move 16 px over 0.3 s (design "전환 motion"). */
+.map-screen.ui-screen {
+  animation: map-screen-in 0.3s ease-out both;
+}
+
+.map-screen__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1.4rem 0.6rem;
+  border-bottom: 1px solid rgba(233, 196, 106, 0.4);
+}
+
+.map-screen__title {
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+
+.map-screen__hint {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.map-screen__close {
+  min-width: 7rem;
+}
+
+.map-screen__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 1rem;
+  padding: 0.8rem 1.4rem 1.2rem;
+}
+
+.map-view {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(233, 196, 106, 0.55);
+  border-radius: 0.4rem;
+  background: #1a2140;
+  cursor: grab;
+  touch-action: none;
+}
+
+.map-view.is-dragging {
+  cursor: grabbing;
+}
+
+.map-plane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  --pin-scale: 1;
+}
+
+.map-plane__image,
+.map-plane__fog {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1024px;
+  height: 1024px;
+  max-width: none;
+}
+
+.map-pins {
+  position: absolute;
+  inset: 0;
+}
+
+/* ---- Pins: zero-size anchors ---- */
+
+.map-pin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: scale(var(--pin-scale));
+  transform-origin: 0 0;
+}
+
+button.map-pin {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.map-icon {
+  position: absolute;
+  left: -0.45rem;
+  top: -0.45rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  filter: drop-shadow(0 0 0.12rem rgba(0, 0, 0, 0.85));
+}
+
+.map-label {
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  transform: translateX(-50%);
+  padding: 0 0.3rem;
+  border-radius: 0.2rem;
+  background: rgba(14, 24, 56, 0.72);
+  color: var(--text);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.map-label--small {
+  font-size: 0.62rem;
+}
+
+.map-label--region {
+  top: -0.7rem;
+  padding: 0;
+  background: none;
+  color: #fff7e0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.9), 0 0 0.1rem rgba(0, 0, 0, 1);
+}
+
+.map-label--village {
+  top: 0.7rem;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* Player: a gold arrow pointing along the facing (rotated inline). */
+.map-icon--player {
+  left: -0.6rem;
+  top: -0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff3c4;
+  clip-path: polygon(50% 0, 92% 100%, 50% 74%, 8% 100%);
+  filter: drop-shadow(0 0 0.2rem rgba(233, 196, 106, 0.9));
+}
+
+.map-pin--player {
+  z-index: 5;
+}
+
+/* Main_Quest Objective: gold four-point star; tracked Side_Quest: teal diamond. */
+.map-icon--main {
+  left: -0.6rem;
+  top: -0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+.map-icon--side {
+  background: var(--gale);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.map-zone {
+  position: absolute;
+  border-radius: 50%;
+  border: calc(2px * var(--pin-scale)) dashed var(--gold);
+  background: rgba(233, 196, 106, 0.12);
+  pointer-events: none;
+}
+
+.map-zone--side {
+  border-color: var(--gale);
+  background: rgba(94, 211, 165, 0.1);
+}
+
+/* Waystones: a standing stone; active ones glow and can be chosen. */
+.map-icon--waystone {
+  left: -0.35rem;
+  top: -0.55rem;
+  width: 0.7rem;
+  height: 1.1rem;
+  background: #7d8598;
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+}
+
+.map-pin--waystone.is-active .map-icon--waystone,
+.map-icon--legend-active {
+  background: #bfe3ff;
+  filter: drop-shadow(0 0 0.25rem rgba(120, 200, 255, 0.95));
+}
+
+.map-pin--waystone.is-active {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 4;
+}
+
+.map-pin--waystone.is-active.is-focused .map-icon--waystone,
+.map-pin--waystone.is-active:hover .map-icon--waystone {
+  background: #fff;
+  filter: drop-shadow(0 0 0.1rem var(--gold)) drop-shadow(0 0 0.35rem var(--gold));
+}
+
+.map-pin--waystone.is-active.is-focused .map-label {
+  box-shadow: var(--focus);
+}
+
+/* The pin itself is a zero-size anchor: its label carries the focus ring instead. */
+#ui-root .map-pin:focus-visible {
+  outline: none;
+}
+
+/* Landmarks: a muted triangle (marked by a Vista but not visited: hollow look). */
+.map-icon--landmark {
+  left: -0.35rem;
+  top: -0.3rem;
+  width: 0.7rem;
+  height: 0.6rem;
+  background: #f5f1e6;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.map-pin--landmark.is-marked .map-icon--landmark {
+  background: var(--text-muted);
+  opacity: 0.8;
+}
+
+.map-icon--poi {
+  left: -0.3rem;
+  top: -0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #f0d9a8;
+}
+
+/* ---- Side panel ---- */
+
+.map-side {
+  flex: 0 0 17rem;
+  overflow-y: auto;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  border-radius: 0.4rem;
+  background: var(--panel-bg);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.map-side__title {
+  margin: 0.2rem 0 0.4rem;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.map-side__title:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.map-side__regions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.map-side__region {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(233, 196, 106, 0.18);
+}
+
+.map-side__region-name {
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.map-side__count,
+.map-side__empty {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.map-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.map-legend__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.map-legend__item .map-icon {
+  position: relative;
+  left: 0;
+  top: 0;
+  flex: 0 0 auto;
+}
+
+.map-side__notice {
+  margin-top: 1rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--danger);
+  border-radius: 0.3rem;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.map-side__notice::before {
+  content: '';
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.75rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.06rem;
+  background: var(--danger);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-screen.ui-screen {
+    animation: ui-fade-in 0.1s linear both;
+  }
+}

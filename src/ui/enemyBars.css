@@ -1,0 +1,132 @@
+/*
+ * Enemy HP bars (task 14.3; design "적·보스 표시"): 96 × 8, Elites 128 × 10 with the name above, from the layout
+ * table's custom properties (src/ui/hudLayout.ts). Each bar's root is moved to the projected head point with
+ * `transform`; the body is centred on that point and sits just above it.
+ */
+.hud-enemy-bars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hud-enemy-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+.hud-enemy-bar__body {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.1rem;
+  width: var(--hud-enemy-bar-w, 4.8rem);
+  transform: translateX(-50%);
+}
+.hud-enemy-bar.is-elite .hud-enemy-bar__body {
+  width: var(--hud-elite-bar-w, 6.4rem);
+}
+.hud-enemy-bar__name {
+  display: none;
+  color: var(--gold);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 0.05rem 0.25rem rgba(0, 0, 0, 0.85);
+}
+.hud-enemy-bar.is-elite .hud-enemy-bar__name {
+  display: block;
+}
+.hud-enemy-bar__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.hud-enemy-bar__track {
+  position: relative;
+  flex: 1;
+  height: var(--hud-enemy-bar-h, 0.4rem);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 0.1rem;
+  background: rgba(10, 14, 30, 0.75);
+  overflow: hidden;
+}
+.hud-enemy-bar.is-elite .hud-enemy-bar__track {
+  height: var(--hud-elite-bar-h, 0.5rem);
+}
+.hud-enemy-bar.is-locked .hud-enemy-bar__track {
+  border-color: var(--gold);
+}
+.hud-enemy-bar__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #d8434f, #ff7a7a);
+}
+.hud-enemy-bar__fill.is-low {
+  background: linear-gradient(90deg, #a31f2c, #e0414f);
+}
+/* Element_Shield durability, one line above the HP bar in the shield's Element colour. */
+.hud-enemy-bar__shield {
+  position: relative;
+  height: 0.22rem;
+  border-radius: 0.1rem;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.hud-enemy-bar__shield[hidden] {
+  display: none;
+}
+.hud-enemy-bar__shield-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: var(--shield-color, var(--text));
+}
+.hud-enemy-bar__shield[data-element='ember'] { --shield-color: var(--ember); }
+.hud-enemy-bar__shield[data-element='tide'] { --shield-color: var(--tide); }
+.hud-enemy-bar__shield[data-element='gale'] { --shield-color: var(--gale); }
+.hud-enemy-bar__shield[data-element='terra'] { --shield-color: var(--terra); }
+/* Element_Mark icon with its 8 s ring at the bar's left end (Req 25.2). */
+.hud-enemy-bar__mark {
+  position: absolute;
+  right: calc(100% + 0.15rem);
+  top: 50%;
+  width: 0.9rem;
+  height: 0.9rem;
+  transform: translateY(-50%);
+}
+.hud-enemy-bar__mark[hidden] {
+  display: none;
+}
+.hud-enemy-bar__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.hud-enemy-bar__ring circle {
+  fill: rgba(0, 0, 0, 0.55);
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.hud-enemy-bar__mark[data-element='ember'] { color: var(--ember); }
+.hud-enemy-bar__mark[data-element='tide'] { color: var(--tide); }
+.hud-enemy-bar__mark[data-element='gale'] { color: var(--gale); }
+.hud-enemy-bar__mark[data-element='terra'] { color: var(--terra); }
+.hud-enemy-bar__mark-icon {
+  position: absolute;
+  inset: 0.14rem;
+  display: flex;
+}
+.hud-enemy-bar__mark-icon .ui-icon {
+  width: 100%;
+  height: 100%;
+}

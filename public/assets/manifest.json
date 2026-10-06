@@ -1,0 +1,5 @@
+{
+  "format": "Optional CC0 assets. audio entries: { id: sfx_* | mus_*, kind: sfx | music, file: path under public/assets/, author, sourceUrl, license: CC0-1.0 }. Every audio id needs a recipe in src/audio/sfxRecipes.ts or a TrackDef in src/data/music.ts; record used files in CREDITS.md.",
+  "audio": [],
+  "models": []
+}

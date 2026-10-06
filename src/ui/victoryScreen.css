@@ -1,0 +1,54 @@
+/* Victory Screen: statistics list inside the shared panel. */
+
+.victory-screen__panel {
+  width: min(32rem, 100%);
+}
+
+.victory-screen__debug {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid var(--danger);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.victory-screen__stats {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 1.2rem;
+  text-align: left;
+}
+
+.victory-screen__stats--ranks {
+  margin-top: 0.5rem;
+}
+
+.victory-screen__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0.2rem;
+  border-bottom: 1px solid rgba(185, 194, 216, 0.15);
+}
+
+.victory-screen__row dt {
+  color: var(--text-muted);
+}
+
+.victory-screen__row dd {
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.victory-screen__heading {
+  margin-top: 1.2rem;
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: left;
+}

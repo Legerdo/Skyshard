@@ -1,0 +1,83 @@
+/* Discovery card and Sky Ring Trial timer (tasks 12.7, 20.1, 20.3). Never takes pointer input. */
+
+.discovery-notice {
+  position: absolute;
+  left: 50%;
+  bottom: 24%;
+  transform: translateX(-50%);
+  max-width: min(34rem, 88vw);
+  padding: 0.6rem 1.3rem 0.7rem;
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  border-radius: 0.3rem;
+  background: var(--panel-bg);
+  color: var(--text);
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.discovery-notice[hidden],
+.discovery-notice__timer[hidden],
+.discovery-notice__sub[hidden] {
+  display: none;
+}
+
+.discovery-notice__title {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.discovery-notice__text {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.discovery-notice__sub {
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.discovery-notice[data-tone='gold'] {
+  border-color: var(--gold);
+  box-shadow: 0 0 1.2rem rgba(233, 196, 106, 0.4);
+}
+
+.discovery-notice[data-tone='gold'] .discovery-notice__sub {
+  color: var(--gold);
+}
+
+/* Failure: a danger edge and the warning triangle, not colour alone. */
+.discovery-notice[data-tone='danger'] {
+  border-color: var(--danger);
+}
+
+.discovery-notice[data-tone='danger'] .discovery-notice__title::before {
+  content: '';
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.7rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.05rem;
+  background: var(--danger);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.discovery-notice__timer {
+  position: absolute;
+  left: 50%;
+  top: 9.5rem;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--gold);
+  border-radius: 1rem;
+  background: var(--panel-bg);
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+  pointer-events: none;
+}

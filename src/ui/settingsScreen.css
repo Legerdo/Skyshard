@@ -1,0 +1,283 @@
+/* Settings screen (task 14.4): a wide framed panel with a tab row, a scrolling body of rows and a status line. */
+
+.settings-screen {
+  z-index: 1;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(44rem, 100%);
+  max-height: calc(100vh - 2rem);
+  text-align: left;
+}
+
+.settings-title {
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.settings-body {
+  flex: 1 1 auto;
+  min-height: 12rem;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0.5rem 0.5rem 0.2rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  scrollbar-color: rgba(233, 196, 106, 0.5) transparent;
+}
+
+/* One setting: label on the left, control on the right, a constellation divider below. */
+.settings-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px solid rgba(233, 196, 106, 0.12);
+}
+
+.settings-row__label {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.settings-row__control {
+  display: flex;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.settings-row__control > .ui-slider {
+  width: min(22rem, 100%);
+}
+
+.settings-row__note {
+  grid-column: 2;
+  margin-top: -0.15rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.settings-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.settings-badge {
+  padding: 0.15rem 0.55rem;
+  border: 1px dashed rgba(233, 196, 106, 0.7);
+  border-radius: 1rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.settings-badge[hidden] {
+  display: none;
+}
+
+.settings-heading {
+  margin: 1rem 0 0.4rem;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.settings-note,
+.settings-empty {
+  margin: 0.55rem 0.2rem 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.settings-empty {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---- Key remap ---- */
+
+.settings-keys {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 0.8rem;
+}
+
+.settings-key {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  min-height: 2.2rem;
+  padding: 0.25rem 0.4rem 0.25rem 0.7rem;
+  border: 1px solid rgba(233, 196, 106, 0.28);
+  border-radius: 0.3rem;
+  background: rgba(20, 34, 76, 0.72);
+  color: var(--text);
+  text-align: left;
+  pointer-events: auto;
+  transition: box-shadow 120ms ease, background-color 120ms ease;
+}
+
+#ui-root .settings-key:focus-visible,
+#ui-root .settings-hint:focus-visible {
+  outline: none;
+}
+
+.settings-key.is-focused {
+  box-shadow: var(--focus);
+  background-color: rgba(40, 62, 120, 0.9);
+}
+
+.settings-key__label {
+  min-width: 0;
+  font-weight: 600;
+}
+
+.settings-key__code {
+  flex: none;
+  min-width: 2.2rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--gold);
+  border-bottom-width: 2px;
+  border-radius: 0.25rem;
+  background: rgba(233, 196, 106, 0.1);
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.settings-key.is-listening {
+  border-color: var(--gold);
+  background-color: rgba(233, 196, 106, 0.16);
+}
+
+.settings-key.is-listening .settings-key__code {
+  border-style: dashed;
+  animation: settings-listen 1s ease-in-out infinite;
+}
+
+@keyframes settings-listen {
+  50% {
+    background: rgba(233, 196, 106, 0.3);
+  }
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+}
+
+.settings-actions .ui-button {
+  min-height: 2.2rem;
+  padding: 0.3rem 1.1rem;
+}
+
+/* ---- Gamepad layout ---- */
+
+.settings-pad {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+  gap: 0.3rem 0.7rem;
+  align-items: baseline;
+  font-size: 0.85rem;
+}
+
+.settings-pad__button {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.settings-pad__action {
+  color: var(--text);
+}
+
+/* ---- Hints ---- */
+
+.settings-hints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.settings-hint {
+  border-radius: 0.4rem;
+  pointer-events: auto;
+}
+
+.settings-hint.is-focused {
+  box-shadow: var(--focus);
+}
+
+.settings-hint__card {
+  box-shadow: none;
+}
+
+/* ---- Status and footer ---- */
+
+.settings-status {
+  min-height: 1.5em;
+  margin-top: 0.5rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.settings-status.is-warn::before {
+  content: '!';
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  background: var(--danger);
+  color: #0e1838;
+  font-weight: 800;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+.settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.settings-footer .ui-button {
+  min-width: 8rem;
+}
+
+@media (max-width: 40rem) {
+  .settings-keys,
+  .settings-pad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings-row__note {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-key.is-listening .settings-key__code {
+    animation: none;
+  }
+
+  .settings-key {
+    transition: none;
+  }
+}

@@ -1,0 +1,423 @@
+/*
+ * Combat HUD (task 14.3; design "HUD 레이아웃"): sizes and places come from the layout table's custom properties
+ * (src/ui/hudLayout.ts → hudLayoutCssVars on the HUD root), with the same values as fallbacks.
+ */
+
+/* Active_Character HP · level, bottom centre, 480 × 40. */
+.hud-vitals {
+  position: absolute;
+  left: 50%;
+  bottom: var(--hud-vitals-y, 1.2rem);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: var(--hud-vitals-w, 24rem);
+  height: var(--hud-vitals-h, 2rem);
+  pointer-events: none;
+}
+.hud-vitals__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 0.05rem 0.3rem rgba(0, 0, 0, 0.7);
+  font-variant-numeric: tabular-nums;
+}
+.hud-vitals__who {
+  display: flex;
+  gap: 0.45rem;
+  align-items: baseline;
+}
+.hud-vitals__level {
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+.hud-vitals__track {
+  position: relative;
+  height: 0.5rem;
+  margin-top: 0.15rem;
+  border: 1px solid rgba(233, 196, 106, 0.5);
+  border-radius: 0.25rem;
+  background: rgba(14, 24, 56, 0.8);
+  overflow: hidden;
+}
+.hud-vitals__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #7fd48a, #b9f0a4);
+}
+.hud-vitals__fill.is-low {
+  background: linear-gradient(90deg, var(--danger), #ff9aa4);
+}
+
+/* Shared round gauges (SVG, pathLength 100): the arc starts at 12 o'clock and runs clockwise. */
+.hud-sweep__track,
+.hud-sweep__arc {
+  fill: none;
+}
+.hud-sweep__arc {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Party slots: one row of four 72 × 92 slots at the bottom left (portrait, HP bar, status line). */
+.hud-party {
+  position: absolute;
+  left: var(--hud-party-x, 1.2rem);
+  bottom: var(--hud-party-y, 1.2rem);
+  display: flex;
+  gap: var(--hud-slot-gap, 0.4rem);
+  transition: opacity 0.3s linear;
+  pointer-events: none;
+}
+.hud-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  box-sizing: border-box;
+  width: var(--hud-party-w, 3.6rem);
+  height: var(--hud-party-h, 4.6rem);
+  padding: 0.2rem 0;
+  border: 1px solid rgba(245, 241, 230, 0.2);
+  border-radius: 0.35rem;
+  background: rgba(14, 24, 56, 0.6);
+  color: var(--text);
+}
+.hud-slot.is-active {
+  border-color: var(--gold);
+  background: rgba(14, 24, 56, 0.85);
+  box-shadow: 0 0 0.45rem rgba(233, 196, 106, 0.45);
+}
+.hud-slot.is-empty {
+  opacity: 0.35;
+  border-style: dashed;
+}
+.hud-slot.is-empty .hud-slot__track,
+.hud-slot.is-empty .hud-slot__status,
+.hud-slot.is-empty .hud-slot__img,
+.hud-slot.is-empty .hud-slot__element {
+  visibility: hidden;
+}
+.hud-slot__portrait {
+  position: relative;
+  flex: none;
+  width: calc(var(--hud-portrait, 3.2rem) * 0.94);
+  height: calc(var(--hud-portrait, 3.2rem) * 0.94);
+  border-radius: 0.3rem;
+  background: radial-gradient(circle at 50% 35%, rgba(233, 196, 106, 0.25), rgba(0, 0, 0, 0.45));
+  overflow: hidden;
+}
+.hud-slot__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hud-slot__initial {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.hud-slot__initial[hidden] {
+  display: none;
+}
+.hud-slot__key,
+.hud-slot__element {
+  position: absolute;
+  top: 0.08rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.2rem;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.55rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.hud-slot__key {
+  left: 0.08rem;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.hud-slot__element {
+  right: 0.08rem;
+}
+.hud-slot__element .ui-icon {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+/* Switch-lock radial sweep over the portrait (Req 23.3). */
+.hud-slot__lock {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.hud-slot__lock.is-shown {
+  opacity: 1;
+}
+.hud-slot__lock .hud-sweep__track {
+  stroke: transparent;
+}
+.hud-slot__lock .hud-sweep__arc {
+  stroke: rgba(245, 241, 230, 0.8);
+}
+/* Downed: grey portrait, a broken star and "쓰러짐" (Req 32.2). */
+.hud-slot__downed {
+  position: absolute;
+  inset: auto 0 0.1rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  color: var(--danger);
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-shadow: 0 0 0.2rem #000;
+}
+.hud-slot__broken-star {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--text-muted);
+  clip-path: polygon(50% 0, 58% 30%, 45% 42%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+.hud-slot.is-downed .hud-slot__portrait > :not(.hud-slot__downed) {
+  filter: grayscale(1) brightness(0.6);
+}
+.hud-slot.is-downed .hud-slot__downed {
+  display: flex;
+}
+.hud-slot__track {
+  position: relative;
+  flex: none;
+  width: 85%;
+  height: 0.28rem;
+  border-radius: 0.15rem;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.hud-slot__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #7fd48a, #b9f0a4);
+}
+.hud-slot__fill.is-low {
+  background: linear-gradient(90deg, var(--danger), #ff9aa4);
+}
+/* Status line: the Skill cooldown sweep and the Burst four-point star. */
+.hud-slot__status {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  height: 0.6rem;
+}
+.hud-slot__skill {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.hud-slot__skill .hud-sweep__track {
+  stroke: rgba(126, 211, 255, 0.85);
+}
+.hud-slot__skill .hud-sweep__arc {
+  stroke: rgba(0, 0, 0, 0.75);
+}
+.hud-slot__star {
+  width: 0.62rem;
+  height: 0.62rem;
+  background: rgba(245, 241, 230, 0.25);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+.hud-slot__star.is-lit {
+  background: var(--gold);
+}
+/* Reaction preview (Req 23.9): the reaction a standby slot's Element would cause on the previewed target. */
+.hud-slot__preview {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, -0.2rem);
+  padding: 0 0.3rem;
+  border: 1px solid var(--reaction-color, var(--gold));
+  border-radius: 0.2rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--reaction-color, var(--gold));
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.hud-slot__preview[hidden] {
+  display: none;
+}
+.hud-slot.is-shake-a {
+  animation: hud-slot-shake-a 0.25s linear;
+}
+.hud-slot.is-shake-b {
+  animation: hud-slot-shake-b 0.25s linear;
+}
+@keyframes hud-slot-shake-a {
+  0%, 100% { translate: 0; }
+  20%, 60% { translate: -0.25rem; }
+  40%, 80% { translate: 0.25rem; }
+}
+@keyframes hud-slot-shake-b {
+  0%, 100% { translate: 0; }
+  20%, 60% { translate: -0.25rem; }
+  40%, 80% { translate: 0.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-slot.is-shake-a,
+  .hud-slot.is-shake-b {
+    animation: none;
+    outline: 1px solid var(--danger);
+  }
+}
+
+/* Skill ⌀76 and Burst ⌀92 at the bottom right (Req 24.4–24.6, 32.7). */
+.hud-abilities {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s linear;
+  pointer-events: none;
+}
+.hud-ability {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 2px solid rgba(245, 241, 230, 0.35);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, rgba(40, 56, 110, 0.9), rgba(14, 24, 56, 0.85));
+  color: var(--text);
+  font-weight: 700;
+  text-shadow: 0 0.05rem 0.3rem rgba(0, 0, 0, 0.7);
+}
+.hud-ability--skill {
+  right: var(--hud-skill-x, 7rem);
+  bottom: var(--hud-skill-y, 1.2rem);
+  width: var(--hud-skill-w, 3.8rem);
+  height: var(--hud-skill-h, 3.8rem);
+}
+.hud-ability--burst {
+  right: var(--hud-burst-x, 1.6rem);
+  bottom: var(--hud-burst-y, 1.2rem);
+  width: var(--hud-burst-w, 4.6rem);
+  height: var(--hud-burst-h, 4.6rem);
+}
+.hud-ability__ring {
+  position: absolute;
+  inset: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+/* Skill: a dark sweep over the share of the cooldown still to run. */
+.hud-ability--skill .hud-sweep__track {
+  stroke: transparent;
+}
+.hud-ability--skill .hud-sweep__arc {
+  stroke: rgba(0, 0, 0, 0.6);
+}
+/* Burst: the rim ring fills with Energy. */
+.hud-ability--burst .hud-sweep__track {
+  stroke: rgba(0, 0, 0, 0.45);
+}
+.hud-ability--burst .hud-sweep__arc {
+  stroke: var(--gold);
+}
+.hud-ability__name,
+.hud-ability__value {
+  position: relative;
+}
+.hud-ability__name {
+  font-size: 0.72rem;
+}
+.hud-ability__value {
+  min-height: 0.8rem;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+.hud-ability__key {
+  position: absolute;
+  right: -0.1rem;
+  bottom: -0.1rem;
+  min-width: 0.9rem;
+  padding: 0 0.15rem;
+  border-radius: 0.2rem;
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--gold);
+  font-size: 0.6rem;
+  text-align: center;
+}
+.hud-ability.is-ready {
+  border-color: var(--gold);
+}
+.hud-ability--burst.is-ready {
+  box-shadow: 0 0 0.9rem rgba(233, 196, 106, 0.7), inset 0 0 0.6rem rgba(233, 196, 106, 0.35);
+}
+/* The tick the Burst fills: one bright flare over the steady glow. */
+.hud-ability--burst.is-flare-a {
+  animation: hud-burst-flare-a 0.6s ease-out;
+}
+.hud-ability--burst.is-flare-b {
+  animation: hud-burst-flare-b 0.6s ease-out;
+}
+@keyframes hud-burst-flare-a {
+  0% { box-shadow: 0 0 2.2rem rgba(255, 230, 150, 0.95); scale: 1.12; }
+  100% { scale: 1; }
+}
+@keyframes hud-burst-flare-b {
+  0% { box-shadow: 0 0 2.2rem rgba(255, 230, 150, 0.95); scale: 1.12; }
+  100% { scale: 1; }
+}
+.hud-ability.is-refused-a {
+  animation: hud-ability-refused-a 0.3s ease-out;
+}
+.hud-ability.is-refused-b {
+  animation: hud-ability-refused-b 0.3s ease-out;
+}
+@keyframes hud-ability-refused-a {
+  0% { border-color: var(--danger); background: rgba(160, 30, 45, 0.8); translate: -0.2rem; }
+  50% { translate: 0.2rem; }
+  100% { translate: 0; }
+}
+@keyframes hud-ability-refused-b {
+  0% { border-color: var(--danger); background: rgba(160, 30, 45, 0.8); translate: -0.2rem; }
+  50% { translate: 0.2rem; }
+  100% { translate: 0; }
+}
+@keyframes hud-ability-refused-still-a {
+  0% { border-color: var(--danger); background: rgba(160, 30, 45, 0.8); }
+}
+@keyframes hud-ability-refused-still-b {
+  0% { border-color: var(--danger); background: rgba(160, 30, 45, 0.8); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Colour only, no shake or scale. */
+  .hud-ability.is-refused-a {
+    animation-name: hud-ability-refused-still-a;
+  }
+  .hud-ability.is-refused-b {
+    animation-name: hud-ability-refused-still-b;
+  }
+  .hud-ability--burst.is-flare-a,
+  .hud-ability--burst.is-flare-b {
+    animation: none;
+  }
+}

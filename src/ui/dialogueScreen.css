@@ -1,0 +1,137 @@
+/* Dialogue window (task 13.1): bottom centre over the game, a name plate on its top edge, at most three lines of
+   text (90 characters at about 30 per line), the counter and the "next" mark. It never takes pointer input: a left
+   click falls through to the canvas as the advance `attack`. */
+.dialogue-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 1.5rem 7.5rem;
+  pointer-events: none;
+  animation: dialogue-in 0.18s ease-out both;
+}
+
+@keyframes dialogue-in {
+  from {
+    opacity: 0;
+    translate: 0 0.6rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialogue-screen {
+    animation: none;
+  }
+}
+
+.dialogue-window {
+  position: relative;
+  /* 36rem less the padding holds 30 full-width characters of 1.08rem per line: 90 characters in three lines. */
+  width: min(36rem, 100%);
+  padding: 1.35rem 1.6rem 0.7rem;
+  border: 1px solid rgba(233, 196, 106, 0.55);
+  border-radius: 0.5rem;
+  background: var(--panel-bg);
+  box-shadow: 0 0.8rem 2.2rem rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* Name plate on the window's top edge, in the speaker's colour. */
+.dialogue-window__name {
+  --speaker: var(--gold);
+  position: absolute;
+  top: 0;
+  left: 1.2rem;
+  transform: translateY(-55%);
+  padding: 0.2rem 0.9rem 0.25rem;
+  border: 1px solid var(--speaker);
+  border-left-width: 3px;
+  border-radius: 0.3rem;
+  background: rgba(10, 18, 44, 0.96);
+  color: var(--speaker);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Three lines at most; the height stays that of three lines so the window never jumps between windows. */
+.dialogue-window__text {
+  min-height: calc(3 * 1.55em);
+  max-height: calc(3 * 1.55em);
+  overflow: hidden;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  text-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+/* The rest of the window is laid out but not yet shown (no reflow while typing). */
+.dialogue-window__rest {
+  visibility: hidden;
+}
+
+.dialogue-window__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.35rem;
+  min-height: 1.2rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.dialogue-window__hint {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.dialogue-window__hint[data-state='next']::after,
+.dialogue-window__hint[data-state='end']::after {
+  content: '';
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: 0.4rem;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  animation: dialogue-next 0.9s ease-in-out infinite;
+}
+
+.dialogue-window__hint[data-state='end']::after {
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+@keyframes dialogue-next {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 0.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialogue-window__hint::after {
+    animation: none !important;
+  }
+}
+
+/* Visually hidden, read by assistive technology. */
+.dialogue-window__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

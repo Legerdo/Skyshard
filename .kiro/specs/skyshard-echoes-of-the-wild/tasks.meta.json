@@ -1,0 +1,1605 @@
+{
+  "pbtResults": {
+    "2.6 Property 13 속성 테스트: 고정 스텝의 프레임률 독립성": {
+      "status": "passed",
+      "lastRunTimestamp": 1790534602898
+    },
+    "2.5 Property 27 속성 테스트: 지형 위 유지와 턱 오르기": {
+      "status": "passed",
+      "lastRunTimestamp": 1790535408334
+    },
+    "4.7 Property 10 속성 테스트: 피해 공식의 하한·단조성·치명타 배율": {
+      "status": "passed",
+      "lastRunTimestamp": 1790566795736
+    },
+    "4.3 Property 14 속성 테스트: 퀘스트 단계 전이 규칙": {
+      "status": "passed",
+      "lastRunTimestamp": 1790566951691
+    },
+    "4.4 Property 15 속성 테스트: Side_Quest와 무관한 메인 진행": {
+      "status": "passed",
+      "lastRunTimestamp": 1790566956941
+    },
+    "6.2 Property 16 속성 테스트: 파티 교체 규칙": {
+      "status": "passed",
+      "lastRunTimestamp": 1790576609537
+    },
+    "6.10 Property 6 속성 테스트: 같은 Element 재적용 시 표식 갱신": {
+      "status": "passed",
+      "lastRunTimestamp": 1790576619614
+    },
+    "6.9 Property 5 속성 테스트: Reaction 표의 완전성과 대칭성": {
+      "status": "passed",
+      "lastRunTimestamp": 1790576620431
+    },
+    "6.3 Property 17 속성 테스트: Downed 자동 교체와 전멸 판정": {
+      "status": "passed",
+      "lastRunTimestamp": 1790576633175
+    },
+    "6.11 Property 7 속성 테스트: Reaction 발생 빈도 제한": {
+      "status": "passed",
+      "lastRunTimestamp": 1790577154897
+    },
+    "6.13 Property 9 속성 테스트: Element_Shield 배율과 표식 유지": {
+      "status": "passed",
+      "lastRunTimestamp": 1790577174372
+    },
+    "6.16 Property 12 속성 테스트: Stamina 경계와 Exhausted 히스테리시스": {
+      "status": "passed",
+      "lastRunTimestamp": 1790577188491
+    },
+    "6.12 Property 8 속성 테스트: 확산 반경과 연쇄 상한": {
+      "status": "passed",
+      "lastRunTimestamp": 1790577316855
+    },
+    "6.6 Property 11 속성 테스트: Energy 획득과 Burst 규칙": {
+      "status": "passed",
+      "lastRunTimestamp": 1790580090239
+    },
+    "7.2 Property 22 속성 테스트: Telegraph 최소 시간(적·Elite 데이터 전체, 작업 10에서 Caelith 데이터 추가 시 함께 검증)": {
+      "status": "passed",
+      "lastRunTimestamp": 1790584612628
+    },
+    "7.4 Property 20 속성 테스트: AI 상태 전이 제한": {
+      "status": "passed",
+      "lastRunTimestamp": 1790586973548
+    },
+    "7.6 Property 21 속성 테스트: 근접 공격 토큰 상한": {
+      "status": "passed",
+      "lastRunTimestamp": 1790588390315
+    },
+    "9.2 Property 28 속성 테스트: 등반 표면 거리 유지": {
+      "status": "passed",
+      "lastRunTimestamp": 1790601619027
+    }
+  },
+  "executionHistory": {
+    "2.1 `worldLayout.ts` 좌표 규약·배치 데이터와 경로 검증": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520250647
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520282353
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790522103188
+      }
+    ],
+    "2.2 TerrainField 생성과 지형 질의": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520250770
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790525457970
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790527221690
+      }
+    ],
+    "2.3 충돌 primitive, spatial hash, 공간 질의": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520250865
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520283018
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790527221562
+      }
+    ],
+    "2.4 `stepController` 지상 이동": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520250945
+      },
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790527341032
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790529975918
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790530020155
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790533447467
+      }
+    ],
+    "2.5 Property 27 속성 테스트: 지형 위 유지와 턱 오르기": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251015
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790533455941
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790535497154
+      }
+    ],
+    "2.6 Property 13 속성 테스트: 고정 스텝의 프레임률 독립성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251099
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790533457297
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790535498303
+      }
+    ],
+    "2.7 Camera 시스템: 궤도 추적, 충돌 보정, 흔들림": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251149
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790533458800
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790535499677
+      }
+    ],
+    "2.8 지형 청크 렌더, 임시 캐릭터 표시, 입력·컨트롤러·카메라 연결": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251203
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790535525919
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790537328299
+      }
+    ],
+    "2.9 RecoverySystem: Safe_Position 기록과 복귀": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251261
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790537335305
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790538849869
+      }
+    ],
+    "3. Checkpoint - 지형 위를 걷고 뛰고 점프하며 카메라가 지형을 통과하지 않는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251321
+      },
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790538859161
+      },
+      {
+        "executionId": "f9f39b24-4917-46ab-adfd-bf7be59b3731",
+        "chatSessionId": "sess_0f82b2e2-4257-4c45-86c8-06b48b05c01f",
+        "timestamp": 1790563671452
+      },
+      {
+        "executionId": "f9f39b24-4917-46ab-adfd-bf7be59b3731",
+        "chatSessionId": "sess_0f82b2e2-4257-4c45-86c8-06b48b05c01f",
+        "timestamp": 1790564020682
+      }
+    ],
+    "4.1 GameState·RuntimeState 골격과 New Game 초기 상태 팩토리(seed, Kairen만 합류, Thistlewick 배치)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251376
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790564275053
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790565094136
+      }
+    ],
+    "4.2 퀘스트 모델·`questReducer`·Main_Quest 10단계 데이터(모든 Objective, trigger, category, marker) + 데이터 테스트(단계당 Objective ≥ 2, category ≥ 2) + 전체 경로 재생 unit test": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251437
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790565107993
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566603483
+      }
+    ],
+    "4.3 Property 14 속성 테스트: 퀘스트 단계 전이 규칙": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251489
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566626702
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790568893266
+      }
+    ],
+    "4.4 Property 15 속성 테스트: Side_Quest와 무관한 메인 진행": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251548
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566627230
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790568894156
+      }
+    ],
+    "4.5 월드 트리거와 상호작용: area/discovery 볼륨과 'area:entered', 2.5 m 상호작용 대상 선택과 prompt, GateSystem(gate·veil·seal을 Skyshard 수에서 파생), Resonance_Altar와 Starlit_Stair 생성, 계단 추락 복귀": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251603
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566629698
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790568896049
+      }
+    ],
+    "4.6 전투 골격과 피해 공식: AttackDef/HitEvent/HitShape 런타임, `computeDamage`, Kairen Normal_Attack, 단순 적(Bramblekin) 피격·사망": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251657
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790565109920
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566605224
+      }
+    ],
+    "4.7 Property 10 속성 테스트: 피해 공식의 하한·단조성·치명타 배율": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251717
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790566630983
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790568897964
+      }
+    ],
+    "4.8 최소 UI: ScreenManager, Title(New Game/Continue), HUD Objective 문구와 Skyshard n/3, 기본 Victory·Defeat 화면": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251776
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790568904888
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790570973728
+      }
+    ],
+    "4.9 전체 경로 연결: 단순화한 세 Challenge_Area 핵심 경로, Skyshard 획득과 게이트 개방, Resonance_Altar 활성화, 단순 Caelith(3 Phase 임계치와 기본 공격 2종), Victory 화면까지 실제 플레이 가능하게 연결": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251829
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790570995799
+      },
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790575480110
+      }
+    ],
+    "5. Checkpoint - Title부터 Victory까지 최소 전체 경로를 실제로 완주할 수 있는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251889
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790575725914
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790575781158
+      }
+    ],
+    "6.1 Party_System: 슬롯 순서, 합류, `canSwitch` 규칙과 0.8 s 교체 잠금, 위치·방향·속도 인계, 진행 중 동작 취소·설치 효과 유지, 대기 중 Cooldown 진행, Downed 0.8 s 후 자동 교체, 전멸 판정": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251940
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790575788527
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576539488
+      }
+    ],
+    "6.2 Property 16 속성 테스트: 파티 교체 규칙": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520251995
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576549566
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577062493
+      }
+    ],
+    "6.3 Property 17 속성 테스트: Downed 자동 교체와 전멸 판정": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252046
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576551060
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577063779
+      }
+    ],
+    "6.4 전투 액션 런타임: hit 판정 도형·대상별 1회 판정, 조준 보조(5 m·60°), Isla 조준(30°·25 m), 투사체 풀(swept sphere), Charged_Attack(0.4 s), Dodge 무적 0.25 s·Perfect_Dodge 슬로우, 후딜 Dodge 취소, Lock-on과 전투 프레이밍": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252115
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577076358
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578800020
+      }
+    ],
+    "6.5 Energy·Cooldown 규칙(`energyGain`, `addEnergy`, `canBurst`), Skill Cooldown 시작, Burst 1.0 s 무적 연출, 거부 피드백": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252198
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578820293
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790580003894
+      }
+    ],
+    "6.6 Property 11 속성 테스트: Energy 획득과 Burst 규칙": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252272
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790580010227
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790581494853
+      }
+    ],
+    "6.7 캐릭터 키트 데이터(`src/data/characters.ts`: 4명 스탯, Normal·Charged·Skill·Burst AttackDef, 패시브, 강화 3단계) + 역할 제약 데이터 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252324
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790575790363
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576541454
+      }
+    ],
+    "6.8 Element 규칙(`reactionFor`, `applyElement`, `previewReaction`): 8 s 표식, 갱신, 반응과 표식 소모, Element_Shield 배율, 빈도 제한, 표식 효과, Terra 반응 보호막": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252386
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790575792101
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576543562
+      }
+    ],
+    "6.9 Property 5 속성 테스트: Reaction 표의 완전성과 대칭성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252438
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576552545
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577065832
+      }
+    ],
+    "6.10 Property 6 속성 테스트: 같은 Element 재적용 시 표식 갱신": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252490
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576554556
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577067445
+      }
+    ],
+    "6.11 Property 7 속성 테스트: Reaction 발생 빈도 제한": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252543
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577077902
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578801873
+      }
+    ],
+    "6.12 Property 8 속성 테스트: 확산 반경과 연쇄 상한": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252613
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577079674
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578803142
+      }
+    ],
+    "6.13 Property 9 속성 테스트: Element_Shield 배율과 표식 유지": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252669
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577081205
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578805191
+      }
+    ],
+    "6.14 Reaction 효과 런타임(폭발, 용암 지대, 속박, 확산·연쇄, 연쇄 표시), ElementReceiver 인터페이스(가시덤불, 화로, 과열 수정, 불 장애물, 바람개비, 금 간 바위, 압력판, 불안정 수정), 반응 예고 아이콘 데이터, 속성 반응 도감 기록": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252722
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790580012252
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790581497399
+      }
+    ],
+    "6.15 Stamina 규칙(`stepStamina`, `canStart`, 캐릭터 패시브, Exhausted 30% 히스테리시스)과 컨트롤러 연결": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252782
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790576556142
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577068918
+      }
+    ],
+    "6.16 Property 12 속성 테스트: Stamina 경계와 Exhausted 히스테리시스": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252847
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790577082802
+      },
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790578806715
+      }
+    ],
+    "7.1 적·Elite 데이터(`src/data/enemies.ts`: 8종 + Elite 6체, 스탯, 감지, 사거리, 공격과 Telegraph, 약점, poise, XP·Glim·드롭, Region 레벨) + Mossback Brute 정면 방어·방어 파괴 unit test": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252911
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790582594381
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790584256502
+      }
+    ],
+    "7.2 Property 22 속성 테스트: Telegraph 최소 시간(적·Elite 데이터 전체, 작업 10에서 Caelith 데이터 추가 시 함께 검증)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520252966
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790584263840
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790585990447
+      }
+    ],
+    "7.3 AI FSM(`AI_TRANSITIONS`, `aiTransition`), 감지(120°·14 m, 6 m, 피격)와 0.5 s alert, 근거리 접근·원거리 8–14 m 유지와 시야 확인, leash·8 s 미감지 → return·회복, Stagger 누적 2 s, 80 m 밖 sleep·20 Hz 결정": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253020
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790584266962
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790585992220
+      }
+    ],
+    "7.4 Property 20 속성 테스트: AI 상태 전이 제한": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253082
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790586000057
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790588015768
+      }
+    ],
+    "7.5 `MeleeTokenPool`(최대 2), 1.2 m 분리 steering, 플레이어 캡슐 밀어내기, 절벽·장애물 probe와 2 s 정체 → return, 지형 아래·경계 밖 적 복귀": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253132
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790586002011
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790588017602
+      }
+    ],
+    "7.6 Property 21 속성 테스트: 근접 공격 토큰 상한": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253193
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790588024136
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790589817285
+      }
+    ],
+    "7.7 적 공격 실행(Telegraph 후 판정, 무적 확인, 피해·넉백), 피격 반응, 사망 동작과 1.5 s 소멸, 드롭과 3 m 자동 흡수": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253246
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790588026188
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790589818468
+      }
+    ],
+    "7.8 스폰너·Enemy_Camp(잠긴 Chest → 'camp:cleared')·Elite 처치 지속, 빠른 이동·불러오기 후 배회 적 재배치, 전멸 후 해당 전투 적 초기화": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253307
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790589824962
+      },
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790591218017
+      }
+    ],
+    "8. Checkpoint - 여러 적이 감지·추적·공격·피격·사망하고 전투가 처음부터 처치까지 정상 진행되는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253365
+      },
+      {
+        "executionId": "8a7e1900-c557-440b-9a3f-d9da138b739c",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790591557619
+      },
+      {
+        "executionId": "8a7e1900-c557-440b-9a3f-d9da138b739c",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790592521333
+      }
+    ],
+    "9.1 등반: 부착 조건(≥ 65°, 0.2 s), `closestSurface` 투영과 법선 정렬, 볼록·오목 모서리, 올라서기 0.45 s, 아래 등반 지면 감지, 도약, C 이탈·Stamina 고갈 낙하, 등반 불가 재질, 등반 중 전투·교체 무시": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253420
+      },
+      {
+        "executionId": "8a7e1900-c557-440b-9a3f-d9da138b739c",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790592543495
+      },
+      {
+        "executionId": "c50ce463-eb9c-4755-a034-c52a463d180b",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790595938232
+      }
+    ],
+    "9.2 Property 28 속성 테스트: 등반 표면 거리 유지": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253474
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790600890344
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790605465888
+      }
+    ],
+    "9.3 활강과 기류: 전개 조건(지면 3 m 이상), 하강 ≤ 2.5 m/s·수평 9 m/s·Stamina 6/s, Updraft 8 m/s·Wind_Zone 4 m/s 볼륨과 시각·음향 표시, Wren Skill 6 m 상승, 종료 전이": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253533
+      },
+      {
+        "executionId": "c50ce463-eb9c-4755-a034-c52a463d180b",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790595955410
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790598045368
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790599182718
+      }
+    ],
+    "9.4 수영·얕은 물: 깊이 판정, 얕은 물 −20%·물 튀김, 수면 수영 3.5 m/s·Stamina 6/s, 수영 중 고갈 시 Safe_Position 복귀": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253590
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790599184359
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790600882734
+      }
+    ],
+    "9.5 Puzzle_Mechanism 시스템(single/allOf/sequence/weight, 0.2 s 피드백, 해결 저장, 순서형 실패 2 s 초기화, 단계×5 s 제한, 3회 실패 힌트, 반복 시도 가능)과 오픈월드 퍼즐 6종": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253651
+      },
+      {
+        "executionId": "8a7e1900-c557-440b-9a3f-d9da138b739c",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790592545567
+      },
+      {
+        "executionId": "c50ce463-eb9c-4755-a034-c52a463d180b",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790593479886
+      },
+      {
+        "executionId": "c50ce463-eb9c-4755-a034-c52a463d180b",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790593490982
+      },
+      {
+        "executionId": "c50ce463-eb9c-4755-a034-c52a463d180b",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790595940449
+      }
+    ],
+    "9.6 Hollowroot Shrine: 함몰지 성소 R0–R6, Ember·Gale·Terra 퍼즐, 전투 방, Rootbound Warden, 체크포인트 2개, 추락·전멸 시 체크포인트 복귀, 획득 후 출구": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253708
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790600892689
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790605466203
+      }
+    ],
+    "9.7 Cinderspire: 필수 등반 3구간(각 12 m ≤ 기본 Stamina 70%)·휴식 발판, Updraft 2개, 활강 2구간, Tide로 식히는 과열 수정 벽, 불안정 수정 hazard, 정상 Cinder Alpha, 출구 수정 계단, 기본 Stamina로 통과 가능 검증": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253769
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790605475722
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790609454072
+      }
+    ],
+    "9.8 Starfall Observatory: 별자리 순서 퍼즐(3단계 15 s), 방어막 적 2웨이브, Sentinel Prime, 돔 발코니 출구 활강로": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253838
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790609456280
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790615455490
+      }
+    ],
+    "10.1 보스 데이터 `src/data/boss.ts` 작성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253902
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790615464381
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790616333185
+      }
+    ],
+    "10.2 Arena, 연결 전당, 등장 연출, HUD 보스 바 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520253969
+      },
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790616334307
+      }
+    ],
+    "10.3 `BossBrain` 패턴 스케줄러 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254094
+      }
+    ],
+    "10.4 Starshell과 Shard_Crystal 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254188
+      }
+    ],
+    "10.5 Property 18 속성 테스트: 보스 Phase 단조성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254255
+      }
+    ],
+    "10.6 Property 19 속성 테스트: Starshell Element 회전": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254322
+      }
+    ],
+    "10.7 Phase 전환, Starfall, Astral Sweep, Phase 1 Stagger 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254383
+      }
+    ],
+    "10.8 재도전·처치 흐름 구현과 밸런스 시뮬레이션 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254462
+      }
+    ],
+    "11. Checkpoint - Caelith 3 Phase 전투를 정상 입력만으로 처치할 수 있고 모든 강공격에 대응 가능한 Telegraph가 있는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254519
+      }
+    ],
+    "12.1 Progression 경험치·레벨업 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254637
+      }
+    ],
+    "12.2 Property 24 속성 테스트: 성장 배율과 메인 경로 레벨": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254694
+      }
+    ],
+    "12.3 Echo Altar 능력 강화 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254800
+      }
+    ],
+    "12.4 장비·소비 아이템 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254871
+      }
+    ],
+    "12.5 Pip 상점 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520254937
+      }
+    ],
+    "12.6 Property 23 속성 테스트: 인벤토리와 Glim 경계": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255003
+      }
+    ],
+    "12.7 보상 지급 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255067
+      }
+    ],
+    "12.8 Property 30 속성 테스트: Chest 보상 결정성과 등급": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255129
+      }
+    ],
+    "13.1 Dialogue_System: `DialogueDef`, `selectDialogue` 우선순위, 이름판과 최대 3줄 대화 창, 45자/s 출력·F/Space/좌클릭 진행, 0.5 s 안에 NPC 회전, 대화 창 수 제한, 화자별 발화음, 모든 이름 있는 NPC의 0/1/2/3/엔딩 후 대사 작성과 데이터 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255195
+      }
+    ],
+    "13.2 Thistlewick과 NPC: 광장·집·노점·Echo Altar·우물·밭·망루 배치, NPC idle + 주변 행동, Hearth 회복, Durga·Oriel 배치, Skyshard 단계별 마을 변화, Sanctum 시야 축 확보": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255255
+      }
+    ],
+    "13.3 Side_Quest 3종(sq_tamsin 풍차 날개의 연, sq_hobb 가시 둥지 소탕, sq_durga 화로 3개 점화): 데이터, 고유 보상, 세계 변화 플래그, 추적 Objective의 Compass·지도 표시": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255333
+      }
+    ],
+    "13.4 Tutorial_System: Hint 20종 데이터, 한 번에 1개·최대 2줄·현재 바인딩 키 아이콘, 수행 또는 8 s 후 완료 저장, 재표시 금지와 \"조작 안내 보기\", 첫 10분 배치 확인(Kairen → Isla 증기 폭발 유도 포함)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255396
+      }
+    ],
+    "13.5 지도와 안개: heightfield로 만든 지도 이미지, `FogOfWar`(8 m 칸, 방문 40 m, Vista 200 m, encode/decode), 지도 화면 표시 항목·탐색 구역 원(≥ 60 m)·Region별 Chest/Echo_Tablet 수, 미발견 POI 숨김": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255461
+      }
+    ],
+    "13.6 Property 26 속성 테스트: 지도 안개 공개": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255526
+      }
+    ],
+    "13.7 Waystone·빠른 이동·Compass: 활성화 연출과 등록, HP 회복·Downed 해제·부활 지점 지정, 전투 밖 3 s 이하 빠른 이동과 전투 중 거부 메시지, 상단 Compass(폭 ≤ 40%, 방위, Objective, 150 m 안 Waystone, 발견 Landmark, 추적 Side_Quest)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255591
+      }
+    ],
+    "14.1 UI 구조와 스타일: ScreenManager 스택·포커스 탐색(마우스·키보드·게임패드)·0.15–0.3 s 전환과 UI 효과음, 디자인 토큰(남색 패널, 별빛 금색 테두리), Element 아이콘 SVG 4종, 기본 HTML 모양을 쓰지 않는 사용자 정의 컨트롤, 한국어 폰트 스택·UI 배율 변수·명도 대비": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255661
+      }
+    ],
+    "14.2 화면 구현: Loading, Title(3D 배경·오디오 시작 안내·New Game/Continue/Settings/Credits), 덮어쓰기 확인, Pause 전체 항목, Inventory/Equipment, Quest, 속성 반응 도감, Shop, Echo Altar, Dialogue, Defeat(상황별 선택지), Victory(통계·탐험 계속/메인 메뉴·디버그 표시), Credits, 오류 화면": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255737
+      }
+    ],
+    "14.3 HUD: 레이아웃과 면적 예산(≤ 15%), 파티 슬롯(포트레이트·Element·HP·키·Skill/Burst·Downed·교체 대기·반응 예고), HP·레벨, Skill/Burst 아이콘과 준비 발광·효과음, Stamina 원형, Objective, Skyshard n/3, prompt, 비전투 5 s 후 50%, 적 HP 바·표식·방어막·Elite 이름, 보스 바, 화면 밖 Telegraph 화살표, 피격 방향, 알림(Region 카드, 발견, 단계 완료, 캠프 소탕, 획득, 연쇄, 저장 표시기·저장 실패)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255797
+      }
+    ],
+    "14.4 Settings: 데이터·기본값·보정, 오디오/그래픽/조작/접근성/조작 안내 탭, 적용 시간(오디오 0.1 s, 그래픽 1 s), 키 재지정 흐름(`remapBinding` 맞바꿈, 예약 키 거부, 기본값), 게임패드 고정 배치": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255881
+      }
+    ],
+    "14.5 Property 25 속성 테스트: 키 재지정 전단사": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520255948
+      }
+    ],
+    "15.1 저장 형식과 불러오기 파이프라인: `SaveEnvelope`(version, checksum FNV-1a, 정규형), 키 4종, `loadSave`(메인 → 백업 → 격리), `migrate` 체인, `sanitizeGameState` 보정 규칙, `validateGameState`, 손상·잘림·checksum·버전·범위 초과 unit test": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256099
+      }
+    ],
+    "15.2 Property 1 속성 테스트: 저장 데이터 round-trip": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256161
+      }
+    ],
+    "15.3 Property 2 속성 테스트: 불러오기의 전체성과 백업 복구": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256216
+      }
+    ],
+    "15.4 Property 3 속성 테스트: 보정 결과의 범위와 멱등성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256272
+      }
+    ],
+    "15.5 Property 4 속성 테스트: 버전 마이그레이션의 보존성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256333
+      }
+    ],
+    "15.6 SaveScheduler와 Continue: Milestone 0.5 s 병합·2 s 이내 저장, 90 s 주기, 전투·연출 중 보류, 쓰기 전 백업, 저장 표시기, 쓰기 실패 처리와 메모리 전용 경고, Continue 시 GameState로 월드 재구성·위치 배치, New Game 덮어쓰기": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256403
+      }
+    ],
+    "16.1 AudioEngine 그래프: master·limiter, 곡별 track gain을 둔 musicBus, ui·world·ambient·voice 하위 그룹을 둔 sfxBus, 공유 reverb, `setMusic`·`setSfx` 0.05 s ramp로 독립 on/off, 첫 입력 unlock·재시도, 탭 전환 suspend/resume, 가짜 AudioContext로 버스 독립성 unit test": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256468
+      }
+    ],
+    "16.2 절차적 음악: lookahead 시퀀서, 합성 악기 6종, 곡 데이터(Title/Thistlewick, Region 3곡, 전투, 보스 Phase 3곡, Sanctum, Crater, Challenge_Area 3곡, Victory), 선곡 우선순위와 1.5–3 s crossfade": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256529
+      }
+    ],
+    "16.3 효과음: 합성 레시피 카탈로그(재질별 발소리, 이동, 캐릭터 공격·능력, 피격, Reaction 6종, 적, UI, 보상·진행), 거리 감쇠·pan, 동시 32 voice, 활강 바람, Region 환경음, 화자별 발화음, 적 Telegraph 준비음": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256590
+      }
+    ],
+    "16.4 선택적 CC0 오디오: manifest 로드·decode, 실패 시 같은 id 합성음 대체, manifest id마다 레시피·TrackDef 존재 데이터 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256648
+      }
+    ],
+    "17. Checkpoint - 저장·Continue·설정·오디오·모든 UI 화면이 정상 동작하는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256708
+      }
+    ],
+    "18.1 공유 toon 재질(3단계 명암, rim, vertex color, fog cap)과 캐릭터·NPC·적·보스 전용 inverted-hull 외곽선, 렌더러 설정": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256774
+      }
+    ],
+    "18.2 하늘 돔과 진행 연동 시간대 프리셋 6종·4 s 전환, Region 팔레트와 color grading 혼합": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256839
+      }
+    ],
+    "18.3 Landmark 가시성(far plane 2,200 m, 거리 culling 제외, 원거리 LOD, fog cap 0.55)과 Astral Sanctum 봉인 고리 3분할 점등·제단 빛기둥": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256904
+      }
+    ],
+    "18.4 지형 LOD·skirt·재질 vertex color·절벽 지층 셰이더, 청크별 instanced 식생·바위·나무(Region별 3종)·밀도 설정·바람·풀 휘어짐, 소품 청크 병합, 모든 핵심 장소 구조물 prefab(Thistlewick 가옥, 풍차, Elderbough, 성소, 다리, 첨탑, 관측소, Sanctum)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520256975
+      }
+    ],
+    "18.5 물 셰이더·폭포, Region별 대기 입자, 새·나비, 실내 조명 전환, Blight 시각 효과·정화·장막 셰이더, 동적 그림자와 blob shadow": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257048
+      }
+    ],
+    "18.6 후처리(half-res bloom, grading, FXAA), 품질 프리셋 3종의 실시간 적용(1 s 이내, 재시작 없음), 성능 예산 달성(draw call ≤ 500, 삼각형 ≤ 1.5M, 1080p 평균 60 fps)과 F3 측정": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257120
+      }
+    ],
+    "19.1 rig kit와 rigid skinning 병합(본체 1 + 외곽선 1 SkinnedMesh), 캔버스 얼굴과 눈 깜빡임, 스프링 체인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257183
+      }
+    ],
+    "19.2 영웅 4명 모델(체형·머리 실루엣·의상·팔레트·무기 형상, 30 m 실루엣 구별)과 시작 시 포트레이트 렌더, 임시 캡슐 표시 교체": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257255
+      }
+    ],
+    "19.3 적 8종·Elite 6체·NPC 7명·Caelith 모델(Starshell, Final Phase 균열, 사망 파편)": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257316
+      }
+    ],
+    "19.4 애니메이션 시스템: `PoseClip`·Animator 레이어·0.1–0.25 s crossfade·절차적 레이어, 영웅 공용·캐릭터별 클립, 적·보스·NPC 클립, 공격 hit 이벤트와 AttackDef 시각 일치 데이터 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257381
+      }
+    ],
+    "19.5 VFX 시스템: 파티클 풀·스프라이트 아틀라스·무기 궤적, VFX 위에 그리는 telegraph decal, hit flash·방향성 impact, 피해 숫자 DOM 풀(24), Element·Reaction별 연출, 월드·진행 연출, 교체 소용돌이, Perfect_Dodge 잔상, Stagger 표시, 사망 소멸": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257449
+      }
+    ],
+    "19.6 타격감: 강한 타격의 50–90 ms Hit_Stop과 camera impulse, Normal_Attack 일반 명중에는 흔들림 없음": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257512
+      }
+    ],
+    "19.7 Visual_Provider 구조와 절차적 공급자": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257578
+      }
+    ],
+    "19.8 외부 모델 어댑터(glTF/GLB·FBX·VRM)와 humanoid retarget": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257638
+      }
+    ],
+    "19.9 Property 31 속성 테스트: Humanoid retarget 방향 보존": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257700
+      }
+    ],
+    "19.10 Property 32 속성 테스트: Visual_Manifest 해석의 전체성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257758
+      }
+    ],
+    "20.1 POI 데이터와 배치": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257814
+      }
+    ],
+    "20.2 Property 29 속성 테스트: POI 60 m 커버리지": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257875
+      }
+    ],
+    "20.3 시야 검증과 발견": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520257948
+      }
+    ],
+    "20.4 Region 차별화 데이터 테스트와 월드 경계 구현": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258061
+      }
+    ],
+    "21.1 Cinematic_System 재생기": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258121
+      }
+    ],
+    "21.2 연출 데이터 전체 작성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258183
+      }
+    ],
+    "21.3 세계 상태 변화": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258248
+      }
+    ],
+    "21.4 첫 10분 온보딩 배치와 도달 시간 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258303
+      }
+    ],
+    "22.1 `?debug=1` 전용 Debug_Tools": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258371
+      }
+    ],
+    "22.2 읽기 전용 Test_Harness": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258437
+      }
+    ],
+    "23. Checkpoint - 전체 비주얼·연출·밀도 패스 후 모든 테스트와 빌드, 최소 전체 경로가 여전히 동작하는지 확인": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258497
+      }
+    ],
+    "24.1 Vitest 전체 정비": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258554
+      }
+    ],
+    "24.2 Playwright 구성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258613
+      }
+    ],
+    "24.3 시스템 시나리오": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258673
+      }
+    ],
+    "24.4 입력 전용 완주 봇": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258724
+      }
+    ],
+    "24.5 전체 완주 테스트와 스크린샷 점검표 생성": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258786
+      }
+    ],
+    "24.6 완주 계측 기반 플레이 경험 개선": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258850
+      }
+    ],
+    "25.1 선택적 CC0 에셋 반입": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258913
+      }
+    ],
+    "25.2 `CREDITS.md`와 `src/data/credits.ts` 동기화 테스트, Credits 화면": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520258975
+      }
+    ],
+    "25.3 독창성 가드 테스트": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520259039
+      }
+    ],
+    "25.4 검증 요약 생성기": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520259100
+      }
+    ],
+    "26. Final Checkpoint - 검증 요약을 근거로 모든 테스트·빌드·완주 결과를 확인하고 최종 보고 전 남은 문제를 정리": [
+      {
+        "executionId": "e9f97149-6055-41f3-a776-54767af8ad6d",
+        "chatSessionId": "sess_a99403dd-34fc-4816-a300-e8a389798110",
+        "timestamp": 1790520259164
+      }
+    ],
+    "2. 지형·충돌·이동·카메라 (M1)": [
+      {
+        "executionId": "343618d0-0663-4e9b-a789-7310e8949849",
+        "chatSessionId": "sess_79208d16-7f11-42d3-a014-d5f5f7fa707f",
+        "timestamp": 1790538849940
+      }
+    ],
+    "4. 최소 전체 경로 (M2)": [
+      {
+        "executionId": "4a071c0a-1bc2-4138-8d3f-2855b41fc7ad",
+        "chatSessionId": "sess_e0d552b4-9816-4085-a54b-35a1e4c98a42",
+        "timestamp": 1790575480183
+      }
+    ],
+    "6. 파티·전투·속성 (M3)": [
+      {
+        "executionId": "a694d64f-30c6-4e99-8b77-b767d8b7b2b6",
+        "chatSessionId": "sess_2a60d246-4b90-4744-87f0-cf7fd99106d5",
+        "timestamp": 1790581497482
+      }
+    ],
+    "7. 적과 AI (M4)": [
+      {
+        "executionId": "2af1c75e-3047-4797-b856-ce6d54fb84a0",
+        "chatSessionId": "sess_a5371e3f-8284-4e68-95da-e95669767db8",
+        "timestamp": 1790591218093
+      }
+    ],
+    "9. 수직 탐험과 Challenge_Area (M5)": [
+      {
+        "executionId": "065953a1-6007-408a-9608-e0892f6758f0",
+        "chatSessionId": "sess_48e22336-9273-4b4d-9fe6-8c771a16a505",
+        "timestamp": 1790615455590
+      }
+    ]
+  }
+}

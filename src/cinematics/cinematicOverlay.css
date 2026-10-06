@@ -1,0 +1,119 @@
+/* Cinematic overlay (src/cinematics/cinematicOverlay.ts): letterbox, title card, skip hint and gauge. */
+
+.cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.cinematic-overlay[hidden] {
+  display: none;
+}
+
+.cinematic-overlay__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: #000;
+  transition: height 0.35s ease-out;
+}
+
+.cinematic-overlay__bar--top {
+  top: 0;
+}
+
+.cinematic-overlay__bar--bottom {
+  bottom: 0;
+}
+
+.cinematic-overlay.is-letterboxed .cinematic-overlay__bar {
+  height: 10vh;
+}
+
+.cinematic-overlay__title {
+  position: absolute;
+  left: 50%;
+  bottom: 16vh;
+  transform: translateX(-50%);
+  max-width: 80vw;
+  padding: 0.6rem 1.6rem;
+  text-align: center;
+  color: var(--text, #f4efe3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  animation: cinematic-title-in 0.5s ease-out;
+}
+
+.cinematic-overlay__title[hidden] {
+  display: none;
+}
+
+.cinematic-overlay__title-main {
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: var(--gold, #e9c46a);
+}
+
+.cinematic-overlay__title-sub {
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+}
+
+.cinematic-overlay__skip {
+  position: absolute;
+  right: 1.4rem;
+  bottom: calc(10vh + 0.8rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  background: rgba(11, 16, 38, 0.72);
+  color: var(--text, #f4efe3);
+  font-size: 0.85rem;
+}
+
+.cinematic-overlay__skip[hidden] {
+  display: none;
+}
+
+.cinematic-overlay__gauge {
+  --skip-progress: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold, #e9c46a) calc(var(--skip-progress) * 1turn), rgba(244, 239, 227, 0.25) 0);
+  -webkit-mask: radial-gradient(circle, transparent 45%, #000 48%);
+  mask: radial-gradient(circle, transparent 45%, #000 48%);
+}
+
+.cinematic-overlay__skip-keys {
+  font-weight: 700;
+}
+
+@keyframes cinematic-title-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* The rest of the HUD hides while a cinematic plays (GameplayHud.setCinematic); the overlay and the DEBUG badge stay. */
+.hud.hud--cinematic > :not(.hud__layer):not(.hud-debug-badge),
+.hud.hud--cinematic .hud__layer > :not(.cinematic-overlay) {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-overlay__bar {
+    transition: none;
+  }
+  .cinematic-overlay__title {
+    animation: none;
+  }
+}

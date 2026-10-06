@@ -1,0 +1,63 @@
+/* Interaction prompt: right of the screen centre, 320×48 at UI scale 1 (design HUD layout). */
+.interact-prompt {
+  position: absolute;
+  left: calc(50% + var(--hud-prompt-x, 4rem));
+  top: calc(50% + var(--hud-prompt-y, 3.2rem));
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: var(--hud-prompt-w, 16rem);
+  min-height: var(--hud-prompt-h, 2.4rem);
+  padding: 0.3rem 0.75rem 0.3rem 0.35rem;
+  background: var(--panel-bg);
+  border: 1px solid rgba(233, 196, 106, 0.45);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.interact-prompt[hidden] {
+  display: none;
+}
+
+.interact-prompt__key {
+  flex: none;
+  min-width: 1.8rem;
+  height: 1.8rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 0.25rem;
+  background: rgba(233, 196, 106, 0.08);
+}
+
+.interact-prompt__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.interact-prompt__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.interact-prompt__detail {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.interact-prompt__detail[hidden] {
+  display: none;
+}

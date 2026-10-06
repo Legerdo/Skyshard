@@ -1,0 +1,28 @@
+/* Damage feedback (Req 26.7): a red edge vignette and an arc toward the attacker for 0.4 s after a hit. */
+.hud-hit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+}
+.hud-hit.is-shown {
+  display: block;
+}
+.hud-hit__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 40, 60, 0) 55%, rgba(255, 40, 60, 0.55) 100%);
+}
+/* A ring segment around the screen centre; rotated so its top points toward the attacker. */
+.hud-hit__arc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16rem;
+  height: 16rem;
+  margin: -8rem 0 0 -8rem;
+  border-radius: 50%;
+  border: 0.4rem solid transparent;
+  border-top-color: var(--danger);
+  filter: drop-shadow(0 0 0.35rem rgba(0, 0, 0, 0.7));
+}

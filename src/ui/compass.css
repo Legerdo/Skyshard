@@ -1,0 +1,146 @@
+/*
+ * HUD Compass (design "Compass" / "HUD 레이아웃": top centre, 560 × 40 at UI scale 1, never over 40 % of the width).
+ * Markers are positioned by `left` in percent of the strip and centred on it. Never takes pointer input.
+ */
+
+.hud-compass {
+  position: absolute;
+  left: 50%;
+  top: 1.2rem;
+  width: min(38vw, var(--hud-compass-w, 28rem));
+  height: var(--hud-compass-h, 2rem);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hud-compass[hidden],
+.hud-compass [hidden] {
+  display: none !important;
+}
+
+.hud-compass__strip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(233, 196, 106, 0.5);
+  border-bottom: 1px solid rgba(233, 196, 106, 0.5);
+  background: linear-gradient(90deg, rgba(14, 24, 56, 0), var(--panel-bg) 18%, var(--panel-bg) 82%, rgba(14, 24, 56, 0));
+}
+
+/* Centre caret: where the camera looks. */
+.hud-compass__caret {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.55rem;
+  height: 0.35rem;
+  margin-left: -0.275rem;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.hud-compass__tick {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 0.35rem;
+  background: rgba(185, 194, 216, 0.55);
+}
+
+.hud-compass__tick--cardinal {
+  height: 0.5rem;
+  background: var(--text);
+}
+
+.hud-compass__cardinal {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.7);
+}
+
+.hud-compass__tick--cardinal[data-bearing='0'] .hud-compass__cardinal {
+  color: var(--gold);
+}
+
+.hud-compass__marker {
+  position: absolute;
+  top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.hud-compass__icon {
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  filter: drop-shadow(0 0 0.15rem rgba(0, 0, 0, 0.8));
+}
+
+/* Main_Quest Objective: gold four-point star. */
+.hud-compass__marker--main .hud-compass__icon {
+  width: 1rem;
+  height: 1rem;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+.hud-compass__distance {
+  margin-top: 0.05rem;
+  color: var(--text);
+  font-size: 0.55rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.9);
+}
+
+/* Tracked Side_Quest Objective: teal diamond. */
+.hud-compass__marker--side .hud-compass__icon {
+  background: var(--gale);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+/* Active Waystone: a pale standing stone. */
+.hud-compass__marker--waystone .hud-compass__icon {
+  width: 0.55rem;
+  background: #bfe3ff;
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+}
+
+/* Discovered Landmark: a small muted triangle. */
+.hud-compass__marker--landmark {
+  top: 0.45rem;
+}
+
+.hud-compass__marker--landmark .hud-compass__icon {
+  width: 0.6rem;
+  height: 0.55rem;
+  background: var(--text-muted);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* Inside the search zone: "탐색 구역" at the centre instead of an arrow (Req 3.6). */
+.hud-compass__zone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.5rem;
+  border: 1px dashed var(--gold);
+  border-radius: 0.2rem;
+  background: rgba(14, 24, 56, 0.9);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}

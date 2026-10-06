@@ -1,0 +1,97 @@
+/* Debug_Tools panel (src/debug/debugPanel.ts, `?debug=1` only) and the enemy AI labels. */
+
+.debug-panel {
+  position: absolute;
+  right: 1rem;
+  top: 4rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 17rem;
+  padding: 0.6rem 0.7rem 0.7rem;
+  border: 1px solid rgba(220, 70, 70, 0.9);
+  border-radius: 0.4rem;
+  background: rgba(20, 12, 16, 0.94);
+  color: #f4efe3;
+  font-size: 0.85rem;
+  pointer-events: auto;
+}
+
+.debug-panel[hidden] {
+  display: none;
+}
+
+.debug-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.debug-panel__tag {
+  padding: 0.05rem 0.45rem;
+  border-radius: 0.2rem;
+  background: rgba(150, 30, 30, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.debug-panel__key {
+  opacity: 0.8;
+  font-size: 0.75rem;
+}
+
+.debug-panel__row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.debug-panel__button,
+.debug-panel__select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(244, 239, 227, 0.35);
+  border-radius: 0.25rem;
+  background: rgba(60, 40, 48, 0.95);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.debug-panel__select {
+  flex: 1;
+  min-width: 0;
+}
+
+.debug-panel__button:hover,
+.debug-panel__button:focus-visible,
+.debug-panel__select:focus-visible,
+.debug-panel__check:focus-visible {
+  outline: 2px solid #e9c46a;
+  outline-offset: 1px;
+}
+
+.debug-ai-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 59;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.debug-ai-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.2rem;
+  background: rgba(20, 12, 16, 0.8);
+  color: #ffd9a0;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.debug-ai-label[hidden] {
+  display: none;
+}

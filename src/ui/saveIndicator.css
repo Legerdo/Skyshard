@@ -1,0 +1,22 @@
+.save-indicator {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 9.5rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(11, 16, 38, 0.82);
+  border: 1px solid rgba(232, 200, 120, 0.55);
+  color: var(--text, #f4efe3);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.save-indicator[data-tone='ok'] {
+  border-color: rgba(150, 220, 170, 0.7);
+}
+
+.save-indicator[data-tone='error'] {
+  border-color: rgba(255, 110, 90, 0.85);
+  color: #ffd7cf;
+}

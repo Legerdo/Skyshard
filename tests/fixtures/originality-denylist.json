@@ -1,0 +1,43 @@
+{
+  "_about": "Task 25.3 (Req 40.7): distinctive proper nouns and coined system terms of existing open-world action RPGs (element and reaction names, places, characters, monsters, system items), in English and in their official Korean localization. tests/unit/originality.test.ts fails when any string literal or data value of src/ contains one: Latin entries as whole words (case-insensitive, camelCase / snake_case split), Korean entries as a whole space-separated word (optionally followed by a particle). Everyday words those games also use as names are deliberately left out because they are not the games' own inventions and this game uses them in their plain sense (aether, amber, echo, guardian, shrine, slime, swirl, spread, talus, vision, waypoint, 확산, 증발); a few technical terms that serve as those games' reaction or item names are kept (Superconduct, Overloaded, 감전, 원석) because this game never needs them. Multi-word phrases are listed when the phrase itself is the game's term (e.g. 'Stone Talus', 'Statue of the Seven').",
+  "elements": [
+    "Pyro", "Hydro", "Anemo", "Electro", "Dendro", "Cryo", "Geo",
+    "불 원소", "물 원소", "바람 원소", "바위 원소", "번개 원소", "풀 원소", "얼음 원소"
+  ],
+  "reactions": [
+    "Superconduct", "Electro-Charged", "Hyperbloom", "Burgeon", "Lunar-Charged", "Overloaded",
+    "초전도", "과부하", "감전", "만개", "발화", "원소 반응"
+  ],
+  "abilities": [
+    "Elemental Burst", "Elemental Skill", "Elemental Mastery", "Elemental Sight",
+    "원소폭발", "원소 폭발", "원소 전투 스킬", "원소 마스터리", "원소 시야"
+  ],
+  "places": [
+    "Teyvat", "Mondstadt", "Liyue", "Inazuma", "Sumeru", "Fontaine", "Natlan", "Snezhnaya", "Khaenri'ah", "Celestia",
+    "Dragonspine", "Hyrule", "Kakariko", "Hateno", "Gerudo", "Akkala", "Eldin", "Lanayru", "Hebra", "Faron",
+    "Penacony", "Jarilo", "Xianzhou", "Solaris", "Huanglong",
+    "티바트", "몬드", "리월", "이나즈마", "수메르", "폰타인", "나타", "스네즈나야", "켄리아", "셀레스티아", "드래곤스파인",
+    "하이랄", "카카리코", "하테노", "게루도"
+  ],
+  "characters": [
+    "Paimon", "Lumine", "Diluc", "Venti", "Zhongli", "Nahida", "Furina", "Mavuika", "Kaeya", "Keqing", "Ganyu", "Yoimiya",
+    "Kazuha", "Tartaglia", "Signora", "Dvalin", "Andrius", "Barbatos", "Morax", "Beelzebul",
+    "Zelda", "Ganondorf", "Ganon", "Impa", "Purah", "Mipha", "Daruk", "Revali", "Urbosa", "Sidon", "Riju",
+    "Stelle", "Himeko", "Rover", "Jinhsi",
+    "페이몬", "루미네", "다이루크", "벤티", "종려", "나히다", "푸리나", "케이아", "각청", "감우", "요이미야", "카즈하",
+    "젤다", "가논", "가논돌프", "임파", "푸르아", "미파", "다르케르", "리발", "우르보사"
+  ],
+  "monsters": [
+    "Hilichurl", "Mitachurl", "Samachurl", "Lawachurl", "Abyss Mage", "Ruin Guard", "Ruin Hunter", "Fatui",
+    "Bokoblin", "Moblin", "Lizalfos", "Lynel", "Hinox", "Molduga", "Octorok", "Chuchu", "Keese", "Stone Talus", "Yiga",
+    "Divine Beast", "Calamity Ganon", "Tacet Discord",
+    "힐리추르", "츄츄족", "심연 메이지", "유적 가디언", "우인단", "보코블린", "모리블린", "리잘포스", "라이넬", "히녹스",
+    "옥타로크", "이가단", "신수"
+  ],
+  "systems": [
+    "Primogem", "Original Resin", "Fragile Resin", "Statue of the Seven", "Teleport Waypoint", "Ley Line Outcrop",
+    "Spiral Abyss", "Gnosis", "Archon", "Sheikah", "Sheikah Slate", "Sheikah Tower", "Spirit Orb", "Korok", "Korok Seed",
+    "Stellaron", "Astral Express", "Resonator", "Tacet Field", "Simulacra", "Wuwa",
+    "원석", "레진", "마신", "집정관", "신의 눈", "나선 비경", "칠천신상", "시커족", "시커 스톤", "코로그", "코로그의 씨앗"
+  ]
+}

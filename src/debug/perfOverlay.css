@@ -1,0 +1,44 @@
+/* F3 performance panel (top-right under the HUD's Skyshard progress, non-interactive; design "알림과 피드백"). */
+
+.perf-overlay {
+  position: fixed;
+  top: 4.2rem;
+  right: 1.2rem;
+  z-index: 200;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1rem;
+  min-width: 11rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(233, 196, 106, 0.35);
+  border-radius: 6px;
+  background: rgba(8, 12, 28, 0.78);
+  color: var(--text);
+  font-family: ui-monospace, Consolas, 'Cascadia Mono', Menlo, 'D2Coding', monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.perf-overlay__label {
+  color: var(--text-muted);
+}
+
+.perf-overlay__value {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.perf-overlay__extra {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(185, 194, 216, 0.2);
+  color: var(--text-muted);
+  white-space: pre;
+}
+
+.perf-overlay__extra:empty {
+  display: none;
+}

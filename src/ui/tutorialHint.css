@@ -1,0 +1,102 @@
+/* Tutorial_Hint card: bottom right, above the Skill / Burst icons (combatHud.css: Burst ⌀92 at bottom 1.2rem, so
+   its top is at 5.8rem). One hint, key caps on the left (up to four in a 2 × 2 block), at most two lines. */
+.tutorial-hint {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 6.6rem;
+  max-width: 27rem;
+  pointer-events: none;
+}
+
+.tutorial-hint[hidden] {
+  display: none;
+}
+
+.tutorial-hint.is-entering {
+  animation: tutorial-hint-in 0.28s ease-out;
+}
+
+@keyframes tutorial-hint-in {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutorial-hint.is-entering {
+    animation: none;
+  }
+}
+
+.tutorial-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.9rem 0.55rem 0.6rem;
+  background: var(--panel-bg);
+  border: 1px solid rgba(233, 196, 106, 0.5);
+  border-left: 3px solid var(--gold);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.4);
+  color: var(--text);
+}
+
+.tutorial-card__keys {
+  flex: none;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, auto);
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.tutorial-card__keys[data-count='0'] {
+  display: none;
+}
+
+.tutorial-card__keys[data-count='1'] {
+  grid-template-columns: auto;
+}
+
+.tutorial-card__key {
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-bottom-width: 2px;
+  border-radius: 0.25rem;
+  background: rgba(233, 196, 106, 0.1);
+}
+
+.tutorial-card__key.is-wide {
+  font-size: 0.7rem;
+}
+
+.tutorial-card__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: 0 0.05rem 0.25rem rgba(0, 0, 0, 0.6);
+}
+
+/* Lines are broken by the Tutorial_System (hintLines): each stays on its own line. */
+.tutorial-card__line {
+  white-space: nowrap;
+}
